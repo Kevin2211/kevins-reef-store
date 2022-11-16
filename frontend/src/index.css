@@ -12,8 +12,24 @@ header{
   padding: 1rem;
 }
 
+
 header a {
   color: white;
   font-weight: bold;
   text-decoration: none;
+}
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.product{
+  border: 1px solid;
+  margin: 1rem;
+}
+.product img {
+  width: 300px;
+}
+.product-info{
+  padding: 1rem;
 }
