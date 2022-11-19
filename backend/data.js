@@ -32,7 +32,7 @@ const data = {
         },
         {
             name: 'Weeping Willow Toadstool',
-            slug: 'weeping-willow-toadstool',
+            slug: 'weeping-willow-toadstool2',
             category: 'Softie',
             image: '/images/weepingwillow.jpeg',
             price: 100,
