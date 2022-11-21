@@ -36,7 +36,7 @@ const data = {
             category: 'Softie',
             image: '/images/weepingwillow.jpeg',
             price: 100,
-            countInStock: 10,
+            countInStock: 0,
             careLevel: 'Easy',
             description: 'high quality shirt'
         }
