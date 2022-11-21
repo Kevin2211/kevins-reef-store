@@ -15,6 +15,7 @@ export default function Product(props) {
                 <Card.Title> { product.name }</Card.Title>
             </Link>
             <Card.Text>Price: ${product.price}</Card.Text>
+            <Card.Text>Care Level: {product.careLevel}</Card.Text>
             <Button>Add to cart</Button>
         </Card.Body>
   </Card>

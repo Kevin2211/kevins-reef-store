@@ -20,6 +20,9 @@ body {
 .product img {
   width: 100%;
 }
+.product-image{
+  width: 100%;
+}
 .product-info{
   padding: 1rem;
 }

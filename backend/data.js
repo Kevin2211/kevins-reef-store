@@ -16,7 +16,7 @@ const data = {
             category: 'SPS',
             image: '/images/waltdisney.jpeg',
             price: 200,
-            countInStock: 10,
+            countInStock: 0,
             careLevel: 'Expert',
             description: 'high quality shirt'
         },
