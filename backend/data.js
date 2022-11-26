@@ -1,6 +1,7 @@
 const data = {
     products: [
         {
+            _id: "1",
             name: 'UC Amazeballs Goni',
             slug: 'uc-amazeballs-shirt',
             category: 'LPS',
@@ -11,6 +12,7 @@ const data = {
             description: 'high quality shirt'
         },
         {
+            _id: "2",
             name: 'Big R Walt Disney',
             slug: 'bigr-walt-disney',
             category: 'SPS',
@@ -21,6 +23,7 @@ const data = {
             description: 'high quality shirt'
         },
         {
+            _id: "3",
             name: 'Weeping Willow Toadstool',
             slug: 'weeping-willow-toadstool',
             category: 'Softie',
@@ -31,6 +34,7 @@ const data = {
             description: 'high quality shirt'
         },
         {
+            _id: "4",
             name: 'Weeping Willow Toadstool',
             slug: 'weeping-willow-toadstool2',
             category: 'Softie',
