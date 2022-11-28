@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useContext, useEffect, useReducer } from "react";
 import { Badge, Button, Card, Col, ListGroup, Row } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async"
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
@@ -14,6 +14,7 @@ const reducer = (state,action) => {
       case 'FETCH_REQUEST':
         return {...state, loading: true};
       case 'FETCH_SUCCESS':
+
         return{...state, product: action.payload, loading: false};
       case 'FETCH_FAIL':
         return {...state, loading: false, error: action.payload};
@@ -23,6 +24,7 @@ const reducer = (state,action) => {
   }
 
 const ProductScreen = () => {
+    const navigate = useNavigate()
     const params = useParams()
     const { slug } = params
     const [{loading, error, product}, dispatch] = useReducer(reducer, {
@@ -57,9 +59,10 @@ const ProductScreen = () => {
             }
         contextDispatch({
             type: 'CART_ADD_ITEM', 
-            payload: {...product, quantity: 1}
+            payload: {...product, quantity}
             
         })
+        navigate('/cart')
       }
     
     return ( 

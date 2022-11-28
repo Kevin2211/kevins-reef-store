@@ -32,3 +32,6 @@ body {
 main{
   flex: 1
 }
+.img-thumbnail {
+  height: 80px;
+}
