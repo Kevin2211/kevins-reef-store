@@ -8,6 +8,7 @@ export default function SigninScreen() {
     const { search } = useLocation()
     const redirectInUrl = new URLSearchParams(search).get('redirect')
     const redirect = redirectInUrl ? redirectInUrl : '/'
+
   return (
     <Container className="small-container">
         <Helmet>

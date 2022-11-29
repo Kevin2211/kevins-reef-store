@@ -1,10 +1,18 @@
 import express from 'express'
 import data from './data.js'
+import mongoose from 'mongoose'
+import dotenv from 'dotenv'
 
 const app = express()
 const port = process.env.PORT || 2000
 
+dotenv.config()
 
+mongoose.connect(process.env.MONGODB_URI).then(() => {
+    console.log('Connected to MongoDB successfully!')
+}).catch(error => {
+    console.log(error.message)
+})
 
 app.get('/api/products', (req,res) => {
     res.send(data.products)
