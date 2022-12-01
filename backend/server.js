@@ -4,6 +4,7 @@ import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import seedRouter from './routes/seedRoutes.js'
 import productRouter from './routes/productRoutes.js'
+import Product from './models/product.js'
 
 const app = express()
 const port = process.env.PORT || 2000
@@ -20,9 +21,9 @@ app.use('/api/seed', seedRouter)
 
 app.use('/api/products', productRouter)
 
-app.get('/api/products/slug/:slug', (req,res) => {
+app.get('/api/products/slug/:slug', async (req,res) => {
 
-    const product = data.products.find(product => product.slug === req.params.slug)
+    const product = await Product.findOne( {slug: req.params.slug} )
     if(product){
         res.send(product)
     }else{
@@ -30,9 +31,9 @@ app.get('/api/products/slug/:slug', (req,res) => {
     }
 })
 
-app.get('/api/products/:id', (req,res) => {
+app.get('/api/products/:id', async (req,res) => {
 
-    const product = data.products.find(product => product._id === req.params.id)
+    const product = await Product.findById(req.params.id)
     if(product){
         res.send(product)
     }else{

@@ -1,4 +1,20 @@
+import bcrypt from 'bcryptjs'
+
 const data = {
+    users: [
+        {
+            name: 'Kevin Trinh',
+            email: 'cagem123456@gmail.com',
+            password: bcrypt.hashSync('123456'),
+            isAdmin: true
+        },
+        {
+            name: 'John',
+            email: 'John@gmail.com',
+            password: bcrypt.hashSync('123456'),
+            isAdmin: false
+        }
+    ],
     products: [
         {
 
@@ -34,7 +50,7 @@ const data = {
             description: 'high quality shirt'
         },
         {
-            name: 'Weeping Willow Toadstool',
+            name: 'Weeping Willow Toadstool 2',
             slug: 'weeping-willow-toadstool2',
             category: 'Softie',
             image: '/images/weepingwillow.jpeg',
