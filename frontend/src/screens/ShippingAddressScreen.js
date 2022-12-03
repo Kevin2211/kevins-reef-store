@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { Button, Form } from 'react-bootstrap'
 import { Store } from '../Store'
 import { useNavigate } from 'react-router-dom'
+import CheckoutBar from '../components/CheckoutBar'
 
 
 export default function ShippingAddressScreen() {
@@ -52,10 +53,11 @@ export default function ShippingAddressScreen() {
   }
 
   return (
-    <div>
+    <div className='container'>
         <Helmet>
             <title>Shipping Address</title>
         </Helmet>
+        <CheckoutBar step1 step2></CheckoutBar>
         <div className='container small-container'>
         <h1 className='my-3'>Shipping Address</h1>
           <Form >
