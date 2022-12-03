@@ -24,6 +24,27 @@ userRouter.post('/signin', expressAsyncHandler( async (req,res) => {
     res.status(401).send({message: 'Invalid email or password'})
 }))
 
+userRouter.post('/signup', expressAsyncHandler( async (req,res) => {
+
+    const user = new User({
+        name: req.body.name,
+        email: req.body.email,
+        password: bcrypt.hashSync(req.body.password),      
+    })
+
+    const newUser = await user.save()
+
+    res.send({
+        _id: newUser._id,
+        name: newUser.name,
+        email: newUser.email,
+        isAdmin: newUser.isAdmin,
+        token: generateToken(user)
+    })
+    
+
+}))
+
 
 export default userRouter
 
