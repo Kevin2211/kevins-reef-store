@@ -36,7 +36,7 @@ export default function PaymentScreen() {
   return (
 
     
-    <div>
+    <div className='container'>
         <CheckoutBar step1 step2 step3></CheckoutBar>
         <div className='container small-container'>
             <Helmet>
