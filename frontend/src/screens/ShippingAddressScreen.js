@@ -10,7 +10,7 @@ export default function ShippingAddressScreen() {
 
   const navigate = useNavigate()
   const { state ,dispatch: contextDispatch} = useContext(Store)
-  const savedShippingAddress = state.shippingAddress
+  const savedShippingAddress = state.cart.shippingAddress
   const {userInfo} = state
   const [fullName, setFullName] = useState( savedShippingAddress.fullName || '')
   const [address1, setAddress1] = useState(savedShippingAddress.address1 || '')
