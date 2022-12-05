@@ -11,7 +11,7 @@ import LoadingBox from '../components/LoadingBox'
 
 
 const reducer = (state,action) => {
-    switch (action.tyype) {
+    switch (action.type) {
         case 'CREATE_REQUEST':
             return {...state, loading: true}
         case 'CREATE_SUCCESS':
