@@ -1,5 +1,13 @@
 # MERN E-Commerce online store
 
+Features to accomplish:<br/>
+<ul>
+  <li>Seller dashboard</li>
+    <li>upload product</li>
+    <li>Update order status</li>
+    <li>customer reviews</li>
+</ul>
+
 View Individual product screen <br/>
 <img width="2352" alt="Screen Shot 2022-12-06 at 12 59 20 PM" src="https://user-images.githubusercontent.com/36496209/205999657-9063d895-2fbb-4b57-9f20-561d1c196d2b.png">
 Add to cart and view cart screen <br/>
