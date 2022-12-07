@@ -1,11 +1,14 @@
 # MERN E-Commerce online store
 
+<h3>Live Demo:<a>https://kevins-reef-store.onrender.com/</a> </h3>
 Features to accomplish:<br/>
 <ul>
   <li>Seller dashboard</li>
     <li>upload product</li>
     <li>Update order status</li>
     <li>customer reviews</li>
+    <li>add Stripe</li>
+    <li>Business logistic</li>
 </ul>
 
 View Individual product screen <br/>
