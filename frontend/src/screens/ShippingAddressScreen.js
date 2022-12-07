@@ -66,11 +66,11 @@ export default function ShippingAddressScreen() {
               <Form.Control value={fullName} onChange={(e) => setFullName(e.target.value)} required></Form.Control>
             </Form.Group>
             <Form.Group className='mb-3' controlId='address1'>
-              <Form.Label>Address 1: </Form.Label>
+              <Form.Label>Address: </Form.Label>
               <Form.Control value={address1} onChange={(e) => setAddress1(e.target.value)} required></Form.Control>
             </Form.Group>
             <Form.Group className='mb-3' controlId='address2'>
-              <Form.Label>Address 2: </Form.Label>
+              <Form.Label>Address line 2: </Form.Label>
               <Form.Control value={address2} onChange={(e) => setAddress2(e.target.value)}></Form.Control>
             </Form.Group>
             <Form.Group className='mb-3' controlId='city'>
