@@ -16,6 +16,8 @@ import SignupScreen from './screens/SignupScreen';
 import PaymentScreen from './screens/PaymentScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import OrderScreen from './screens/OrderScreen';
+import OrderHistoryScreen from './screens/OrderHistoryScreen';
+import ProfileScreen from './screens/ProfileScreen';
 
 function App() {
   const { state, dispatch: contextDispatch } = useContext(Store)
@@ -26,6 +28,7 @@ function App() {
     localStorage.removeItem('userInfo')
     localStorage.removeItem('shippingAddress')
     localStorage.removeItem('paymentMethod')
+    window.location.href = '/signin'
     
   }
   return (
@@ -39,7 +42,9 @@ function App() {
             <LinkContainer to="/">
               <Navbar.Brand>Kevin's Reef</Navbar.Brand>
             </LinkContainer>
-            <Nav className='me-auto'>
+            <Navbar.Toggle aria-controls='basic-navbar-nav'></Navbar.Toggle>
+            <Navbar.Collapse id='basic-navbar-nav'>
+            <Nav className='me-auto w-100 justify-content-end'>
               <Link to='/cart' className='nav-link'>
                 Cart 
                 { cart.cartItems.length > 0 && (
@@ -51,17 +56,18 @@ function App() {
               </Link>
               {userInfo ? (
                 <NavDropdown title={userInfo.name} id="nav-dropdown">
-                    <LinkContainer to='/profile'>
+                    <LinkContainer to='/myprofile'>
                       <NavDropdown.Item> User Profile</NavDropdown.Item>
                     </LinkContainer>
-                    <LinkContainer to='/orderhistory'>
-                      <NavDropdown.Item> Orders</NavDropdown.Item>
+                    <LinkContainer to='/myorders'>
+                      <NavDropdown.Item>My Orders</NavDropdown.Item>
                     </LinkContainer>
                     <NavDropdown.Divider></NavDropdown.Divider>
                     <Link to='#signout' className='dropdown-item' onClick={signoutHandler}>Sign Out</Link>
                 </NavDropdown>
               ):( <Link className="nav-link" to='/signin'> Sign In</Link> )}
             </Nav>
+            </Navbar.Collapse>
           </Container>
         </Navbar>
 
@@ -75,9 +81,11 @@ function App() {
             <Route path='/cart' element={ <CartScreen/> }/>
             <Route path='/signin' element={ <SigninScreen/> }/>
             <Route path='/signup' element={ <SignupScreen/> }/>
+            <Route path='/myprofile' element={ <ProfileScreen/> }/>
             <Route path='/shipping' element={ <ShippingAddressScreen />}></Route>
             <Route path='/payment' element={ <PaymentScreen/> }/>
             <Route path='/placeorder' element={ <PlaceOrderScreen/> }/>
+            <Route path='/myorders' element={ <OrderHistoryScreen/> }/>
             <Route path="/" element={ <HomeScreen/> } />
           </Routes>
         </Container>
