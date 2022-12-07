@@ -48,7 +48,7 @@ const HomeScreen = () => {
           <Helmet>
             <title>Kevin's Reef</title>
           </Helmet>
-        <h1>Feature Products: </h1>
+        <h1>Featured corals: </h1>
         <div className="products" >
         {
           loading ? (<LoadingBox />)

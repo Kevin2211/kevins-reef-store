@@ -48,14 +48,14 @@ export default function CartScreen() {
                         { cartItems.map(item => (
                             <ListGroup.Item key={item._id}>
                                 <Row className='align-items-center'>
-                                    <Col md={ 8 }>
-                                        <Col md={4}>
+      
+                                        <Col md={4} className='my-2'>
                                             <img src={ item.image } alt={ item.name } 
                                             className="img-fluid rounded img-thumbnail"/>
                                             {' '}
                                             <Link to={`/product/${ item.slug}`}> { item.name }</Link>
                                         </Col>
-                                        <Col md={3}>
+                                        <Col md={3} className='my-2'>
                                         <Button variant="light" onClick={() => updateCartHandler(item, item.quantity -1)} disabled={item.quantity === 1}>
                                             <i className='fas fa-minus-circle'></i>
                                         </Button>
@@ -65,17 +65,15 @@ export default function CartScreen() {
                                             <i className='fas fa-plus-circle'></i>
                                         </Button>
                                         </Col>
-                                        <Col md={3}>
+                                        <Col md={3} className='my-2'>
                                             ${ item.price }
                                         </Col>
-                                        <Col md={2}>
+                                        <Col md={2} className='my-2'>
                                             <Button onClick={() => removeItemHandler(item)} variant='light'>
                                                 <i className='fas fa-trash'></i>
                                             </Button>
                                         </Col>
-                                    </Col>
-                                    <Col md={ 4 }>
-                                    </Col>
+
                                 </Row>
                             </ListGroup.Item>
                         ))}
@@ -93,6 +91,9 @@ export default function CartScreen() {
                                 <h3>
                                     Subtotal: ${ cartItems.reduce((a,b) => a + b.price * b.quantity , 0)}
                                 </h3>
+                                <small>
+                                    (Tax and Shipping will be calculated at checkout)
+                                </small>
                             </ListGroup.Item>
                             <ListGroup.Item >
                                 <div className='d-grid'>

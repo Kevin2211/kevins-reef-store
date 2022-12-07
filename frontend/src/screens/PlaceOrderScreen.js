@@ -145,7 +145,7 @@ export default function PlaceOrderScreen () {
                 <ListGroup variant='flush'>
                     <ListGroup.Item>
                         <Row>
-                            <Col>Total: </Col>
+                            <Col>Subtotal: </Col>
                             <Col>${cart.itemsPrice.toFixed(2)}</Col>
                         </Row>
                     </ListGroup.Item>
@@ -163,7 +163,7 @@ export default function PlaceOrderScreen () {
                     </ListGroup.Item>
                     <ListGroup.Item>
                         <Row>
-                            <Col> <strong>Subtotal: </strong> </Col>
+                            <Col> <strong>Total: </strong> </Col>
                             <Col>${cart.totalPrice.toFixed(2)}</Col>
                         </Row>
                     </ListGroup.Item>
