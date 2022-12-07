@@ -1,17 +1,18 @@
 import express from 'express'
-import data from './data.js'
+import path from 'path'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import seedRouter from './routes/seedRoutes.js'
 import productRouter from './routes/productRoutes.js'
-import Product from './models/product.js'
 import userRouter from './routes/userRoutes.js'
 import orderRouter from './routes/orderRoutes.js'
 
 const app = express()
 const port = process.env.PORT || 2000
+const __dirname = path.resolve()
 
 dotenv.config()
+
 
 mongoose.connect(process.env.MONGODB_URI).then(() => {
     console.log('Connected to MongoDB successfully!')
@@ -26,35 +27,22 @@ app.get('/api/keys/paypal', (req, res) => {
     res.send(process.env.PAYPAL_CLIENT_ID || 'sb')
 })
 
+
+
 app.use('/api/seed', seedRouter)
 app.use('/api/products', productRouter)
 app.use('/api/users', userRouter)
 app.use('/api/orders', orderRouter)
 
 
+app.use(express.static(path.join(__dirname,'/frontend/build')))
+app.get('*', (req,res) => res.sendFile(path.join(__dirname, '/frontend/build/index')))
+
 app.use((err, req, res, next) => {
     res.status(500).send({ message: err.message})
 })
-app.get('/api/products/slug/:slug', async (req,res) => {
 
-    const product = await Product.findOne( {slug: req.params.slug} )
-    if(product){
-        res.send(product)
-    }else{
-        res.status(404).send({message: 'Product not found'})
-    }
-})
-
-app.get('/api/products/:id', async (req,res) => {
-
-    const product = await Product.findById(req.params.id)
-    if(product){
-        res.send(product)
-    }else{
-        res.status(404).send({message: 'Product not found'})
-    }
-})
 
 app.listen(port, () => {
-    console.log(`Backend Server Listening at http://localhost:${port}`)
+    console.log(`Server Listening at http://localhost:${port}`)
 })

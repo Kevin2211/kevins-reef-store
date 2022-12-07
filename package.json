@@ -1,21 +1,21 @@
 {
-    "name": "kevins-reef-store",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-      "build": "cd backend && npm install  && cd ../frontend && npm install && npm run build",
-      "start": "node backend/server.js",
-      "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/Kevin2211/kevins-reef-store.git"
-    },
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-      
-    }
-
-  }
+  "name": "ecommerce-store",
+  "version": "1.0.0",
+  "description": "Features to accomplish:<br/> <ul>   <li>Seller dashboard</li>     <li>upload product</li>     <li>Update order status</li>     <li>customer reviews</li> </ul>",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd backend && npm install && cd ../frontend && npm install && npm run build",
+    "start": "node backend/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kevin2211/kevins-reef-store.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kevin2211/kevins-reef-store/issues"
+  },
+  "homepage": "https://github.com/Kevin2211/kevins-reef-store#readme"
+}
