@@ -105,6 +105,7 @@ function App() {
 
 
       </header>
+
       <div className={isSideBarOpen 
       ? 'active-cont side-navbar d-flex justify-content-between flex-wrap flex-column'
       : 'side-navbar d-flex  justify-content-between flex-wrap flex-column'}>
@@ -132,7 +133,7 @@ function App() {
           <Routes>
             <Route path='/product/:slug' element={ <ProductScreen/> }/>
             <Route path='/order/:id' element={ <OrderScreen/> }/>
-            <Route path='/' element={ <SearchScreen/> }/>
+
             <Route path='/cart' element={ <CartScreen/> }/>
             <Route path='/signin' element={ <SigninScreen/> }/>
             <Route path='/signup' element={ <SignupScreen/> }/>
