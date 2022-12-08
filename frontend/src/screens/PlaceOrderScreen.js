@@ -98,7 +98,7 @@ export default function PlaceOrderScreen () {
                             <strong>Name:</strong> {cart.shippingAddress.fullName} <br />
                             <strong>Address: </strong> {cart.shippingAddress.address1}, {cart.shippingAddress.city}, {cart.shippingAddress.postalCode} 
                         </Card.Text>
-                        <Link to='/shipping'>Edit</Link>
+                        <Link className='nav-link' to='/shipping'>Edit</Link>
 
                     </Card.Body>
                 </Card>
@@ -108,7 +108,7 @@ export default function PlaceOrderScreen () {
                         <Card.Text>
                             <strong>Payment Method:</strong> {cart.paymentMethod} <br/>
                         </Card.Text>
-                        <Link to='/payment'>Edit</Link>
+                        <Link className='nav-link' to='/payment'>Edit</Link>
 
                     </Card.Body>
                 </Card>
@@ -125,7 +125,7 @@ export default function PlaceOrderScreen () {
                           alt={item.name}
                           className="img-fluid rounded img-thumbnail"
                         ></img>{' '}
-                        <Link to={`/product/${item.slug}`}>{item.name}</Link>
+                        <Link className='nav-link' to={`/product/${item.slug}`}>{item.name}</Link>
                       </Col>
                       <Col md={3}>
                         Quantity: <span>{item.quantity}</span>
@@ -135,7 +135,7 @@ export default function PlaceOrderScreen () {
                   </ListGroup.Item>
                 ))}
               </ListGroup>
-              <Link to="/cart">Edit</Link>
+              <Link className='nav-link' to="/cart">Edit</Link>
             </Card.Body>
           </Card>
         </Col>

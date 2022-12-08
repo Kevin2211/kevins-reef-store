@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Kevin2211/kevins-reef-store/issues"
   },
-  "homepage": "https://github.com/Kevin2211/kevins-reef-store#readme"
+  "homepage": "https://github.com/Kevin2211/kevins-reef-store#readme",
+  "dependencies": {
+    "node-sass": "^8.0.0"
+  }
 }

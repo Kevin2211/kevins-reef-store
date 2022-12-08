@@ -60,3 +60,6 @@ main{
   background-clip: text;
   -webkit-background-clip: text;
 }
+.nav-link{
+  color: #496be7 !important;
+}

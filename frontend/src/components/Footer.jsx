@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom'
 export default function Footer() {
 
     const footerStyle = {
-        backgroundColor: '#0d6efd'
+        backgroundColor: '#d7d8ea'
     }
     const divStyle = {
-        backgroundColor: '#044dba'
+        backgroundColor: '#373e98'
     }
     const linkStyle ={
 
@@ -16,10 +16,10 @@ export default function Footer() {
         width: '125px'
     }
   return (
-    <div className="">
+    <div className=" footer mt-auto">
 
   <footer
-          className="text-center text-lg-start text-white mt-5"
+          className="text-center text-lg-start text-dark mt-5"
           style={footerStyle}
           >
 
@@ -47,10 +47,10 @@ export default function Footer() {
           <div className=" col-lg-2 col-sm-6 mx-auto mt-3">
             <h6 className="text-uppercase mb-3 font-weight-bold">Help</h6>
             <p>
-              <Link className="text-white">DOA policy</Link>
+              <Link >DOA policy</Link>
             </p>
             <p>
-              <Link className="text-white">Shipping</ Link>
+              <Link className="text-dark">Shipping</ Link>
             </p>
 
           </div>
@@ -83,7 +83,7 @@ export default function Footer() {
 
 
             <a
-               className="btn btn-primary btn-floating m-1"
+               className="btn btn-floating m-1"
                style={linkStyle}
 
                href="https://www.instagram.com/yaboikevin42/"
@@ -102,10 +102,10 @@ export default function Footer() {
 
 
     <div
-         className="text-center p-3"
+         className="text-center text-white p-3"
          style={divStyle}
          >
-      Built and Designed by Kevin with <i className="fas fa-heart me-3"></i> © 2023 Copyright
+      Built and Designed by Kevin with <i className="fas fa-heart me-1"></i> © 2023 Copyright
 
     </div>
 

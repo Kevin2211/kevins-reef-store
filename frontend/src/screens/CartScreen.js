@@ -53,7 +53,7 @@ export default function CartScreen() {
                                             <img src={ item.image } alt={ item.name } 
                                             className="img-fluid rounded img-thumbnail"/>
                                             {' '}
-                                            <Link to={`/product/${ item.slug}`}> { item.name }</Link>
+                                            <Link className='nav-link' to={`/product/${ item.slug}`}> { item.name }</Link>
                                         </Col>
                                         <Col md={3} className='my-2'>
                                         <Button variant="light" onClick={() => updateCartHandler(item, item.quantity -1)} disabled={item.quantity === 1}>
