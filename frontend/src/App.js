@@ -1,6 +1,6 @@
 
 import './App.css';
-import { BrowserRouter, Routes, Route, Link, useNavigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
 import {Navbar, Container, Nav, Badge, NavDropdown} from 'react-bootstrap';
@@ -18,6 +18,7 @@ import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import OrderScreen from './screens/OrderScreen';
 import OrderHistoryScreen from './screens/OrderHistoryScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import Footer from './components/Footer';
 
 function App() {
   const { state, dispatch: contextDispatch } = useContext(Store)
@@ -90,9 +91,7 @@ function App() {
           </Routes>
         </Container>
       </main>
-      <footer>
-        <div className="text-center">All rights reserved</div>
-      </footer>
+      <Footer />
     </div>
     </BrowserRouter>
 
