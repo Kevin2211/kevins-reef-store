@@ -3,13 +3,13 @@ import './App.css';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
-import {Navbar, Container, Nav, Badge, NavDropdown} from 'react-bootstrap';
+import {Navbar, Container, Nav, Badge, NavDropdown, Button} from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap'
 import { useContext } from 'react';
 import { Store } from './Store';
 import CartScreen from './screens/CartScreen';
 import SigninScreen from './screens/SigninScreen';
-import { ToastContainer } from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import ShippingAddressScreen from './screens/ShippingAddressScreen';
 import SignupScreen from './screens/SignupScreen';
@@ -19,6 +19,12 @@ import OrderScreen from './screens/OrderScreen';
 import OrderHistoryScreen from './screens/OrderHistoryScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import Footer from './components/Footer';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { getError } from './utils';
+import axios from 'axios';
+import SearchBox from './components/SearchBox';
+import SearchScreen from './screens/SearchScreen';
 
 function App() {
   const { state, dispatch: contextDispatch } = useContext(Store)
@@ -32,14 +38,36 @@ function App() {
     window.location.href = '/signin'
     
   }
+  const [isSideBarOpen, setIsSideBarOpen] = useState(false)
+  const [categories, setCategories] = useState([])
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+     try {
+      const { data } = await axios.get(`/api/products/categories`)
+      setCategories(data)
+
+     } catch (error) {
+      toast.error(getError(error))
+     } 
+    }
+    fetchCategories()
+  },[])
   return (
 
     <BrowserRouter>
-      <div className='d-flex flex-column site-container'>
+      <div className={ isSideBarOpen 
+        ? 'd-flex flex-column site-container active-cont' 
+        : "d-flex flex-column site-container"
+        }>
       <ToastContainer position='bottom-center' limit={1}/>
       <header>
         <Navbar bg="secondary" variant="dark" expand="lg">
           <Container>
+            <Button variant='secondary' className='me-2'
+            onClick={() => setIsSideBarOpen(!isSideBarOpen)}>
+              <i className='fas fa-bars'></i>
+            </Button>
             <LinkContainer to="/">
               <Navbar.Brand>
                 <img src="/images/kevinsreeflogo.png" className='logo' alt="" />
@@ -47,6 +75,7 @@ function App() {
             </LinkContainer>
             <Navbar.Toggle aria-controls='basic-navbar-nav'></Navbar.Toggle>
             <Navbar.Collapse id='basic-navbar-nav'>
+              <SearchBox></SearchBox>
             <Nav className='me-auto w-100 justify-content-end'>
               <Link to='/cart' className='nav-link'>
                 Cart 
@@ -76,11 +105,34 @@ function App() {
 
 
       </header>
+      <div className={isSideBarOpen 
+      ? 'active-cont side-navbar d-flex justify-content-between flex-wrap flex-column'
+      : 'side-navbar d-flex  justify-content-between flex-wrap flex-column'}>
+        <Nav className='flex-column text-white w-100 p-2'>
+          <Nav.Item>
+            <strong>Categories</strong>
+          </Nav.Item>
+          {categories.map((category) => (
+            <Nav.Item key={category}> 
+              <LinkContainer to={
+                {
+                  pathname: "/search",
+                  search: `?category=${category}`
+                }
+              } 
+              onClick={() => setIsSideBarOpen(false)}>
+                <Nav.Link>{category}</Nav.Link>
+              </LinkContainer>
+            </Nav.Item>
+          ))}
+        </Nav>
+      </div>
        <main>
         <Container className='mt-4'>
           <Routes>
             <Route path='/product/:slug' element={ <ProductScreen/> }/>
             <Route path='/order/:id' element={ <OrderScreen/> }/>
+            <Route path='/' element={ <SearchScreen/> }/>
             <Route path='/cart' element={ <CartScreen/> }/>
             <Route path='/signin' element={ <SigninScreen/> }/>
             <Route path='/signup' element={ <SignupScreen/> }/>

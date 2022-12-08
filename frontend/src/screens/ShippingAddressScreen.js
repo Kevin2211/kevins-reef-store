@@ -60,7 +60,7 @@ export default function ShippingAddressScreen() {
         <CheckoutBar step1 step2></CheckoutBar>
         <div className='container small-container'>
         <h1 className='my-3'>Shipping Address</h1>
-          <Form >
+          <Form onSubmit={ submitHandler }>
             <Form.Group className='mb-3' controlId='fullName'>
               <Form.Label>Full Name: </Form.Label>
               <Form.Control value={fullName} onChange={(e) => setFullName(e.target.value)} required></Form.Control>
@@ -82,7 +82,7 @@ export default function ShippingAddressScreen() {
               <Form.Control value={postalCode} onChange={(e) => setPostalCode(e.target.value)} required></Form.Control>
             </Form.Group>
             <div className='mb-3'>
-              <Button variant='primary' onClick={ submitHandler }>
+              <Button variant='primary' type='submit'>
                 Continue
               </Button>
             </div>
