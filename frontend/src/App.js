@@ -41,7 +41,9 @@ function App() {
         <Navbar bg="primary" variant="dark" expand="lg">
           <Container>
             <LinkContainer to="/">
-              <Navbar.Brand>Kevin's Reef</Navbar.Brand>
+              <Navbar.Brand>
+                <img src="/images/kevinsreeflogo.png" className='logo' alt="" />
+                Kevin's Reef Store</Navbar.Brand>
             </LinkContainer>
             <Navbar.Toggle aria-controls='basic-navbar-nav'></Navbar.Toggle>
             <Navbar.Collapse id='basic-navbar-nav'>

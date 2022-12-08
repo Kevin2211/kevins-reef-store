@@ -48,6 +48,10 @@ main{
   border-bottom: 0.2rem solid #5241f2;
   color: #5241f2;
 }
+.logo{
+  width: 40px;
+  margin-right: 10px;
+}
 
 .fab.fa-instagram {
   color: transparent;

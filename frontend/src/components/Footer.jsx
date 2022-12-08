@@ -19,7 +19,7 @@ export default function Footer() {
     <div className="">
 
   <footer
-          className="text-center text-lg-start text-white"
+          className="text-center text-lg-start text-white mt-5"
           style={footerStyle}
           >
 
@@ -29,8 +29,10 @@ export default function Footer() {
 
         <div className="row">
 
-          <div className="col-md-3 col-lg-3  mx-auto mt-3">
+          <div className=" col-lg-3 col-sm-12 mx-auto mt-3">
+            
             <h6 className="text-uppercase mb-4 font-weight-bold">
+            <img src="/images/kevinsreeflogo.png" className='logo' alt="" />
               Kevin's Reef Store
             </h6>
             <p>
@@ -42,8 +44,8 @@ export default function Footer() {
           <hr className="w-100 clearfix d-md-none" />
 
 
-          <div className="col-md-2 col-lg-2  mx-auto mt-3">
-            <h6 className="text-uppercase mb-4 font-weight-bold">Help</h6>
+          <div className=" col-lg-2 col-sm-6 mx-auto mt-3">
+            <h6 className="text-uppercase mb-3 font-weight-bold">Help</h6>
             <p>
               <Link className="text-white">DOA policy</Link>
             </p>
@@ -57,14 +59,17 @@ export default function Footer() {
           <hr className="w-100 clearfix d-md-none" />
 
 
-          <div className="col-md-4 col-lg-2  mx-auto mt-3">
-            <h6 className="text-uppercase mb-4 font-weight-bold">Contact</h6>
+          <div className=" col-lg-2 col-sm-6 mx-auto mt-3">
+            <h6 className="text-uppercase mb-3 font-weight-bold">Contact</h6>
             <p><i className="fas fa-home mr-3"></i> Houston, TX</p>
             <p><i className="fas fa-envelope mr-3"></i> info@gmail.com</p>
 
           </div>
-          <div className="col-md-4 col-lg-2  mx-auto mt-3">
-            <h6 className="text-uppercase mb-4 font-weight-bold">Secure Payment</h6>
+
+          <hr className="w-100 clearfix d-md-none" />
+
+          <div className=" col-lg-2 col-sm-6 mx-auto mt-3">
+            <h6 className="text-uppercase mb-3 font-weight-bold">Secure Payment</h6>
             <img src="/images/paypal.png" style={paypalStyle} alt="paypal" />
 
             
@@ -73,8 +78,8 @@ export default function Footer() {
 
 
 
-          <div className="col-md-3 col-lg-2  mx-auto mt-3">
-            <h6 className="text-uppercase mb-4 font-weight-bold">Follow us</h6>
+          <div className=" col-lg-2 col-sm-6  mx-auto mt-3">
+            <h6 className="text-uppercase mb-3 font-weight-bold">Follow us</h6>
 
 
             <a
