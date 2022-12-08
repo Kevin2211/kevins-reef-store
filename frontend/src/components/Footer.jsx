@@ -47,7 +47,7 @@ export default function Footer() {
           <div className=" col-lg-2 col-sm-6 mx-auto mt-3">
             <h6 className="text-uppercase mb-3 font-weight-bold">Help</h6>
             <p>
-              <Link >DOA policy</Link>
+              <Link className="text-dark">DOA policy</Link>
             </p>
             <p>
               <Link className="text-dark">Shipping</ Link>
