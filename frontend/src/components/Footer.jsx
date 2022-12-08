@@ -89,7 +89,7 @@ export default function Footer() {
          className="text-center p-3"
          style={divStyle}
          >
-      Built and Design by Kevin with <i className="fas fa-heart me-3"></i> © 2023 Copyright
+      Built and Designed by Kevin with <i className="fas fa-heart me-3"></i> © 2023 Copyright
 
     </div>
 
