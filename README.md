@@ -12,9 +12,9 @@ Features to accomplish:<br/>
 </ul>
 
 View Individual product screen <br/>
-<img width="2352" alt="Screen Shot 2022-12-06 at 12 59 20 PM" src="https://user-images.githubusercontent.com/36496209/205999657-9063d895-2fbb-4b57-9f20-561d1c196d2b.png">
+<img width="2352" alt="Screen Shot 2022-12-07 at 8 13 38 PM" src="https://user-images.githubusercontent.com/36496209/206340091-3f2172e0-3eaa-4666-8640-8e768d5fbdf7.png">
 Add to cart and view cart screen <br/>
-<img width="670" alt="Screen Shot 2022-12-06 at 1 00 58 PM" src="https://user-images.githubusercontent.com/36496209/205999804-7f592816-1efc-4e8a-a814-16327baa75d7.png">
+
 Shipping and payment steps for checkout <br/>
 <img width="2352" alt="Screen Shot 2022-12-06 at 1 01 37 PM" src="https://user-images.githubusercontent.com/36496209/205999952-be363401-2215-4950-be53-dd043b37ed13.png">
 <img width="2352" alt="Screen Shot 2022-12-06 at 1 01 43 PM" src="https://user-images.githubusercontent.com/36496209/206000014-08e322e2-b766-43fc-b8bc-85cb15d6beed.png">
