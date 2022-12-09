@@ -63,7 +63,9 @@ main{
 .nav-link{
   color: #496be7 !important;
 }
-
+.text-bold{
+  font-weight: bolder;
+}
 
 
 .navbar-brand{
