@@ -141,12 +141,12 @@ export default function SearchScreen() {
             <Col md={3}>
                 <Row>
                     <Col xs={'auto'} md={12}>
-                        <div>
+                        <div className='shadow-sm px-2 pb-1 border-0 rounded mb-3'>
                         <h3>Categories</h3>
                             <ul>
-                                <li>
+                                <li >
                                     <Link
-                                    className={'all' === category ? 'text-bold nav-link' : 'nav-link'}
+                                    className={'all' === category ? 'text-bold nav-link' : 'nav-link '}
                                     to={getFilterUrl}>
                                         Any
                                     </Link>
@@ -165,7 +165,7 @@ export default function SearchScreen() {
 
                     </Col>
                     <Col xs={'auto'} md={12}>
-                        <div>
+                    <div className='shadow-sm px-2 pb-1 border-0 rounded mb-3'>
                         <h3>Price</h3>
                             <ul>
                                 <li>
@@ -189,7 +189,7 @@ export default function SearchScreen() {
                         </div>
                     </Col>
                     <Col xs={'auto'} md={12}>
-                        <div>
+                    <div className='shadow-sm px-2 pb-1 border-0 rounded mb-3'>
                             <h3>Care Level:</h3>
                             <ul>
                                     {careLevels.map((care) => (
