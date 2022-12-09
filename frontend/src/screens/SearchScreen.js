@@ -240,8 +240,9 @@ export default function SearchScreen() {
                                 <Button
                                     variant="light"
                                     onClick={() => navigate('/search')}
+                                    className='ms-2'
                                 >
-                                    <i className="fas fa-times-circle"></i>
+                                    <i className="fas fa-times-circle "></i>
                                 </Button>
                                 ) : null}
                                 </div>
