@@ -40,8 +40,10 @@ export default function CartScreen() {
             <Col md={8} >
                 { cartItems.length === 0 
                 ? (<MessageBox> 
-                    Your Cart is Empty. 
-                    <Link to="/"> Go Shopping </Link>
+                    <div className='d-flex flex-wrap'>
+                    <p className='me-1'>Your Cart is Empty.</p>
+                    <Link className='nav-link' to="/"> Go Shopping </Link>
+                    </div>
                 </MessageBox>)
                 :  (
                     <ListGroup>

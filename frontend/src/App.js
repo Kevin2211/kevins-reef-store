@@ -57,12 +57,13 @@ function App() {
 
     <BrowserRouter>
       <div className={ isSideBarOpen 
-        ? 'd-flex flex-column site-container active-cont' 
-        : "d-flex flex-column site-container"
+        ? 'd-flex flex-column ' 
+        : "d-flex flex-column "
         }>
       <ToastContainer position='bottom-center' limit={1}/>
       <header>
-        <Navbar bg="secondary" variant="dark" expand="lg">
+
+        <Navbar bg="secondary" variant="dark" expand="lg" className='shadow'>
           <Container>
             <Button variant='secondary' className='me-2'
             onClick={() => setIsSideBarOpen(!isSideBarOpen)}>
@@ -110,6 +111,12 @@ function App() {
       ? 'active-cont side-navbar d-flex justify-content-between flex-wrap flex-column'
       : 'side-navbar d-flex  justify-content-between flex-wrap flex-column'}>
         <Nav className='flex-column text-white w-100 p-2'>
+        <div className='d-flex justify-content-end '>
+          <Button variant='secondary' className='me-2 mb-2'
+              onClick={() => setIsSideBarOpen(!isSideBarOpen)}>
+                <i className='fas fa-caret-left'></i>
+          </Button>
+        </div>
           <Nav.Item>
             <strong>Categories</strong>
           </Nav.Item>

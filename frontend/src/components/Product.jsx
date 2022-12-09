@@ -26,7 +26,7 @@ export default function Product(props) {
       }
 
   return (
-    <Card>
+    <Card className='shadow border-0'>
         <Link to={`/product/${product.slug}`}>
             <img src={ product.image } className="card-img-top" alt={ product.name } />
         </Link>

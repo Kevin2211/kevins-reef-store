@@ -68,16 +68,20 @@ main{
 }
 
 
+
+/* side bar */
 .navbar-brand{
   font-weight: bold;
 }
 .side-navbar{
   width: 240px;
   height: 100%;
-  position: absolute;
+  position: fixed;
   left: -240px;
-  background-color: #100901;
+  background-color: #0b091c;
   transition: 0.5s;
+  z-index: 999;
+  opacity: 0.93;
 }
 .site-container{
   transition: 0.4s;

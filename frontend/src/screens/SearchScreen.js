@@ -135,7 +135,7 @@ export default function SearchScreen() {
   return (
     <div>
         <Helmet>
-            <title>Search Results:</title>
+            <title>Search Results</title>
         </Helmet>
         <Row>
             <Col md={3}>
