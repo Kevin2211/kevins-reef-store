@@ -139,72 +139,82 @@ export default function SearchScreen() {
         </Helmet>
         <Row>
             <Col md={3}>
-                <h3>Categories</h3>
-                <div>
-                    <ul>
-                        <li>
-                            <Link
-                            className={'all' === category ? 'text-bold nav-link' : 'nav-link'}
-                            to={getFilterUrl}>
-                                Any
-                            </Link>
-                        </li>
-                        {categories.map((c) => (
-                            <li key={c}>
+                <Row>
+                    <Col xs={'auto'} md={12}>
+                        <div>
+                        <h3>Categories</h3>
+                            <ul>
+                                <li>
+                                    <Link
+                                    className={'all' === category ? 'text-bold nav-link' : 'nav-link'}
+                                    to={getFilterUrl}>
+                                        Any
+                                    </Link>
+                                </li>
+                                {categories.map((c) => (
+                                    <li key={c}>
+                                        <Link
+                                        className={c === category ? 'text-bold nav-link' : 'nav-link'}
+                                        to={getFilterUrl({category: c})}>
+                                            {c}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                    </Col>
+                    <Col xs={'auto'} md={12}>
+                        <div>
+                        <h3>Price</h3>
+                            <ul>
+                                <li>
                                 <Link
-                                className={c === category ? 'text-bold nav-link' : 'nav-link'}
-                                to={getFilterUrl({category: c})}>
-                                    {c}
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-                <h3>Price</h3>
-                <div>
-                    <ul>
-                        <li>
-                        <Link
-                                className={'all' === price ? 'text-bold nav-link' : 'nav-link'}
-                                to={getFilterUrl({ price: 'all'})}>
-                                    Any
-                                </Link>
-                        </li>
-                        {prices.map((p) => (
-                                <li key={p.value}>
+                                        className={'all' === price ? 'text-bold nav-link' : 'nav-link'}
+                                        to={getFilterUrl({ price: 'all'})}>
+                                            Any
+                                        </Link>
+                                </li>
+                                {prices.map((p) => (
+                                        <li key={p.value}>
+                                            <Link
+                                            className={p.value === price ? 'text-bold nav-link' : 'nav-link'}
+                                            to={getFilterUrl({price: p.value})}
+                                            >
+                                                {p.name}
+                                            </Link>
+                                        </li>
+                                    ))}
+                            </ul>
+                        </div>
+                    </Col>
+                    <Col xs={'auto'} md={12}>
+                        <div>
+                            <h3>Care Level:</h3>
+                            <ul>
+                                    {careLevels.map((care) => (
+                                                    <li key={care.value}>
+                                                        <Link
+                                                        className={`${care.value}` === `${careLevel}` ? 'text-bold nav-link' : 'nav-link'}
+                                                        to={getFilterUrl({careLevel: care.value})}
+                                                        >
+                                                            {care.name}
+                                                        </Link>
+                                                    </li>
+                                                ))}
+                                                <li>
                                     <Link
-                                    className={p.value === price ? 'text-bold nav-link' : 'nav-link'}
-                                    to={getFilterUrl({price: p.value})}
+                                    to={getFilterUrl({ careLevel: 'all' })}
+                                    className={careLevel === 'all' ? 'text-bold nav-link' : 'nav-link'}
                                     >
-                                        {p.name}
+                                    All Levels
                                     </Link>
                                 </li>
-                            ))}
-                    </ul>
-                </div>
-                <h3>Care Level:</h3>
-                <div>
-                    <ul>
-                    {careLevels.map((care) => (
-                                <li key={care.value}>
-                                    <Link
-                                    className={`${care.value}` === `${careLevel}` ? 'text-bold nav-link' : 'nav-link'}
-                                    to={getFilterUrl({careLevel: care.value})}
-                                    >
-                                        {care.name}
-                                    </Link>
-                                </li>
-                            ))}
-                            <li>
-                <Link
-                  to={getFilterUrl({ careLevel: 'all' })}
-                  className={careLevel === 'all' ? 'text-bold nav-link' : 'nav-link'}
-                >
-                  All Levels
-                </Link>
-              </li>
-                    </ul>
-                </div>
+                            </ul>
+                        </div>
+                    </Col>
+
+                </Row>
             </Col>
             <Col md={9}>
                 {
@@ -223,7 +233,7 @@ export default function SearchScreen() {
                                 {query !== 'all' && ' : ' + query}
                                 {category !== 'all' && ' : ' + category}
                                 {price !== 'all' && ' : Price ' + price}
-                                {careLevel !== 'all' && ' : Rating ' + careLevel + ' & up'}
+                                {careLevel !== 'all' && ' : Care Level ' + careLevels.filter((level) => level.value == careLevel) }
                                 {query !== 'all' ||
                                 category !== 'all' ||
                                 price !== 'all' ? (
