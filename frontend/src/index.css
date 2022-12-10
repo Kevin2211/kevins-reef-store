@@ -80,8 +80,9 @@ main{
   left: -240px;
   background-color: #0b091c;
   transition: 0.5s;
-  z-index: 999;
+  z-index: 9;
   opacity: 0.89;
+  padding-top: 70px;
 }
 .site-container{
   transition: 0.4s;
@@ -92,4 +93,13 @@ main{
 }
 .active-nav{
   margin-left: 0;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.page-container{
+  padding-bottom: 30rem;
 }

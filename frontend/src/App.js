@@ -54,16 +54,15 @@ function App() {
     fetchCategories()
   },[])
   return (
-
-    <BrowserRouter>
+    <div className='d-flex flex-column min-vh-100 position-relative page-container'>
+      <BrowserRouter>
       <div className={ isSideBarOpen 
         ? 'd-flex flex-column ' 
         : "d-flex flex-column "
         }>
-      <ToastContainer position='bottom-center' limit={1}/>
-      <header>
+        <ToastContainer position='bottom-center' limit={1}/>
 
-        <Navbar bg="secondary" variant="dark" expand="lg" className='shadow'>
+        <Navbar bg="secondary" variant="dark" expand="lg" className='shadow sticky-top'>
           <Container>
             <Button variant='secondary' className='me-2'
             onClick={() => setIsSideBarOpen(!isSideBarOpen)}>
@@ -104,58 +103,61 @@ function App() {
           </Container>
         </Navbar>
 
-
-      </header>
-
-      <div className={isSideBarOpen 
-      ? 'active-cont side-navbar d-flex justify-content-between flex-wrap flex-column'
-      : 'side-navbar d-flex  justify-content-between flex-wrap flex-column'}>
-        <Nav className='flex-column text-white w-100 p-2'>
-        <div className='d-flex justify-content-end '>
-          <Button variant='secondary' className='me-2 mb-2'
-              onClick={() => setIsSideBarOpen(!isSideBarOpen)}>
-                <i className='fas fa-caret-left'></i>
-          </Button>
-        </div>
-          <Nav.Item>
-            <strong>Categories</strong>
-          </Nav.Item>
-          {categories.map((category) => (
-            <Nav.Item key={category}> 
-              <LinkContainer to={
-                {
-                  pathname: "/search",
-                  search: `?category=${category}`
-                }
-              } 
-              onClick={() => setIsSideBarOpen(false)}>
-                <Nav.Link>{category}</Nav.Link>
-              </LinkContainer>
+      
+        
+        <div className={isSideBarOpen 
+        ? 'active-cont side-navbar d-flex justify-content-between flex-wrap flex-column'
+        : 'side-navbar d-flex  justify-content-between flex-wrap flex-column'}>
+          <Nav className='flex-column text-white w-100 p-2'>
+          <div className='d-flex justify-content-end '>
+            <Button variant='secondary' className='me-2 mb-2'
+                onClick={() => setIsSideBarOpen(!isSideBarOpen)}>
+                  <i className='fas fa-caret-left'></i>
+            </Button>
+          </div>
+            <Nav.Item>
+              <strong>Categories</strong>
             </Nav.Item>
-          ))}
-        </Nav>
-      </div>
-       <main>
-        <Container className='mt-4'>
-          <Routes>
-            <Route path='/product/:slug' element={ <ProductScreen/> }/>
-            <Route path='/order/:id' element={ <OrderScreen/> }/>
-            <Route path='/search' element={ <SearchScreen/> }/>
-            <Route path='/cart' element={ <CartScreen/> }/>
-            <Route path='/signin' element={ <SigninScreen/> }/>
-            <Route path='/signup' element={ <SignupScreen/> }/>
-            <Route path='/myprofile' element={ <ProfileScreen/> }/>
-            <Route path='/shipping' element={ <ShippingAddressScreen />}></Route>
-            <Route path='/payment' element={ <PaymentScreen/> }/>
-            <Route path='/placeorder' element={ <PlaceOrderScreen/> }/>
-            <Route path='/myorders' element={ <OrderHistoryScreen/> }/>
-            <Route path="/" element={ <HomeScreen/> } />
-          </Routes>
-        </Container>
-      </main>
-      <Footer />
+            {categories.map((category) => (
+              <Nav.Item key={category}> 
+                <LinkContainer to={
+                  {
+                    pathname: "/search",
+                    search: `?category=${category}`
+                  }
+                } 
+                onClick={() => setIsSideBarOpen(false)}>
+                  <Nav.Link>{category}</Nav.Link>
+                </LinkContainer>
+              </Nav.Item>
+            ))}
+          </Nav>
+        </div>
+        <main >
+          <Container className='mt-4'>
+            <Routes>
+              <Route path='/product/:slug' element={ <ProductScreen/> }/>
+              <Route path='/order/:id' element={ <OrderScreen/> }/>
+              <Route path='/search' element={ <SearchScreen/> }/>
+              <Route path='/cart' element={ <CartScreen/> }/>
+              <Route path='/signin' element={ <SigninScreen/> }/>
+              <Route path='/signup' element={ <SignupScreen/> }/>
+              <Route path='/myprofile' element={ <ProfileScreen/> }/>
+              <Route path='/shipping' element={ <ShippingAddressScreen />}></Route>
+              <Route path='/payment' element={ <PaymentScreen/> }/>
+              <Route path='/placeorder' element={ <PlaceOrderScreen/> }/>
+              <Route path='/myorders' element={ <OrderHistoryScreen/> }/>
+              <Route path="/" element={ <HomeScreen/> } />
+            </Routes>
+          </Container>
+
+        </main>
+
+
+        <Footer className='footer' />
+        </div>
+        </BrowserRouter>
     </div>
-    </BrowserRouter>
 
   );
 }
