@@ -35,7 +35,7 @@ function App() {
     localStorage.removeItem('userInfo')
     localStorage.removeItem('shippingAddress')
     localStorage.removeItem('paymentMethod')
-    window.location.href = '/signin'
+    window.location.href = '/'
     
   }
   const [isSideBarOpen, setIsSideBarOpen] = useState(false)
