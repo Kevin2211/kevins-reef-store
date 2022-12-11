@@ -25,6 +25,9 @@ import { getError } from './utils';
 import axios from 'axios';
 import SearchBox from './components/SearchBox';
 import SearchScreen from './screens/SearchScreen';
+import ProtectedRoute from './components/ProtectedRoute';
+import DashboardScreen from './screens/DashboardScreen';
+import AdminRoute from './components/AdminRoute';
 
 function App() {
   const { state, dispatch: contextDispatch } = useContext(Store)
@@ -98,6 +101,22 @@ function App() {
                     <Link to='#signout' className='dropdown-item' onClick={signoutHandler}>Sign Out</Link>
                 </NavDropdown>
               ):( <Link className="nav-link" to='/signin'> Sign In</Link> )}
+              { userInfo && userInfo.isAdmin && (
+                <NavDropdown title="Admin" id="admin-nav-dropdown">
+                    <LinkContainer to='/admin/dashboard'>
+                      <NavDropdown.Item>Dashboard</NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer to='/admin/productlist'>
+                      <NavDropdown.Item>Products</NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer to='/admin/orderlist'>
+                      <NavDropdown.Item>Orders</NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer to='/admin/userlist'>
+                      <NavDropdown.Item>Users</NavDropdown.Item>
+                    </LinkContainer>
+                </NavDropdown>
+              )}
             </Nav>
             </Navbar.Collapse>
           </Container>
@@ -137,16 +156,34 @@ function App() {
           <Container className='mt-4'>
             <Routes>
               <Route path='/product/:slug' element={ <ProductScreen/> }/>
-              <Route path='/order/:id' element={ <OrderScreen/> }/>
+              <Route path='/order/:id' element={ 
+                <ProtectedRoute>
+                  <OrderScreen/>
+                </ProtectedRoute>
+                }/>
               <Route path='/search' element={ <SearchScreen/> }/>
               <Route path='/cart' element={ <CartScreen/> }/>
               <Route path='/signin' element={ <SigninScreen/> }/>
               <Route path='/signup' element={ <SignupScreen/> }/>
-              <Route path='/myprofile' element={ <ProfileScreen/> }/>
+              <Route path='/myprofile' element={ 
+                <ProtectedRoute>
+                  <ProfileScreen/> 
+                </ProtectedRoute>
+              }/>
               <Route path='/shipping' element={ <ShippingAddressScreen />}></Route>
               <Route path='/payment' element={ <PaymentScreen/> }/>
               <Route path='/placeorder' element={ <PlaceOrderScreen/> }/>
-              <Route path='/myorders' element={ <OrderHistoryScreen/> }/>
+              <Route path='/myorders' element={ 
+                <ProtectedRoute>
+                  <OrderHistoryScreen/>
+                </ProtectedRoute>
+               }/>
+               
+               {/* Admin Routes */}
+               <Route path='/admin/dashboard'
+               element={ <AdminRoute><DashboardScreen /></AdminRoute> }
+               ></Route>
+
               <Route path="/" element={ <HomeScreen/> } />
             </Routes>
           </Container>
