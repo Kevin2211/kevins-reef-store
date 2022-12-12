@@ -2,10 +2,13 @@ import axios from 'axios';
 import React, { useEffect, useReducer } from 'react'
 import { Button, Card, Col, Row } from 'react-bootstrap';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import Product from '../components/Product';
+import {toast} from 'react-toastify'
+import { getError } from '../utils'
+import { useContext } from 'react';
+import { Store } from '../Store';
 
 const reducer = (state,action) => {
     switch(action.type){
@@ -21,16 +24,13 @@ const reducer = (state,action) => {
   }
 
 export default function ProductListScreen() {
-
+    const { state: {userInfo} } = useContext(Store)
     const [{loading, error, products}, dispatch] = useReducer(reducer, {
         products: [],
         loading: true, 
         error: ''
       })
-
-    const deleteHandler = () => {
-        
-    }
+    const navigate = useNavigate()
     
       useEffect(() => {
         const fetchData = async () => {
@@ -52,6 +52,11 @@ export default function ProductListScreen() {
                 <title>Product List</title>
               </Helmet>
             <h1>My products </h1>
+            <div className='my-3 d-flex justify-content-end'>
+              <Button variant='success' onClick={() => navigate('/admin/newproduct')}>
+                <i className="fa fa-plus"></i>
+              </Button>
+            </div>
             <div className="products" >
             {
               loading ? (<LoadingBox />)
@@ -59,8 +64,32 @@ export default function ProductListScreen() {
               error ? (<MessageBox variant="danger">{error}</MessageBox>)
               :
             (
+              
               <Row>
                 {products.map((product) => {
+
+                    const deleteHandler = async () => {
+                        const confirmBox = window.confirm(
+                            "Are you sure you want to delete this item from inventory?"
+                          )
+                          if (confirmBox === true) {
+                            try {
+                                const { data }  = await axios.delete(`/api/products/${product._id}/delete`,
+                                {
+                                    headers: {
+                                        authorization: `Bearer ${userInfo.token}`
+                                    }
+                                }
+                                )
+
+                                dispatch({type: 'FETCH_SUCCESS', payload: data})
+                                toast.success('Successful Deleted')
+
+                            } catch (error) {
+                                toast.error(getError(error))
+                            }
+                          }
+                    }
                   return (
                     <Col key={product.slug} xs={6} sm={4} md={3} lg={2} className="mb-3">
                         <Card className='shadow border-0'>

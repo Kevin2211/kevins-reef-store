@@ -1,6 +1,7 @@
 import express from 'express'
 import Product from '../models/product.js'
 import expressAsyncHandler from 'express-async-handler'
+import { isAdmin, isAuth } from '../utils.js'
 
 const productRouter = express.Router()
 
@@ -95,6 +96,50 @@ productRouter.get('/categories', expressAsyncHandler( async (req,res) => {
     res.send(categories)
     
 }))
+
+productRouter.get('/categories', expressAsyncHandler( async (req,res) => {
+  const categories = await Product.find().distinct('category')
+  res.send(categories)
+  
+}))
+
+productRouter.post('/new', isAuth, isAdmin, expressAsyncHandler( async (req,res) => {
+  const product = new Product({
+    name: req.body.name,
+    slug: req.body.slug,
+    image: req.body.image,
+    category: req.body.category,
+    description: req.body.description,
+    careLevel: req.body.careLevel,
+    countInStock: req.body.countInStock,
+    price: req.body.price,
+  })
+
+  const newProduct = await product.save()
+  if(newProduct){
+    res.send('New product created!')
+  }else{
+    res.status(404).send({message: 'Something went wrong'})
+  }
+
+}))
+
+productRouter.delete('/:id/delete', isAuth, isAdmin, expressAsyncHandler( async (req,res) => {
+
+  const productId = req.params.id 
+  const data = await Product.deleteOne({_id: productId})
+  
+  if(data.acknowledged){
+    const newProductList = await Product.find()
+
+      res.send(newProductList)
+  }else{
+    res.status(404).send(new Error('Something went wrong!'))
+  }
+
+  
+}))
+
 
 productRouter.get('/slug/:slug', async (req,res) => {
 

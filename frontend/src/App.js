@@ -27,6 +27,7 @@ import SearchBox from './components/SearchBox';
 import SearchScreen from './screens/SearchScreen';
 import ProtectedRoute from './components/ProtectedRoute';
 import DashboardScreen from './screens/DashboardScreen';
+import NewProductScreen from './screens/NewProductScreen';
 import AdminRoute from './components/AdminRoute';
 import ProductListScreen from './screens/ProductListScreen';
 
@@ -79,7 +80,7 @@ function App() {
                 </Navbar.Brand>
             </LinkContainer>
             <Link to='/cart' className='nav-link d-md-none ms-auto me-3 '>
-                Cart 
+            <i className="fa fa-shopping-cart"></i> 
                 { cart.cartItems.length > 0 && (
                   <Badge pill className='mx-1' bg="danger">
                     {cart.cartItems.reduce( (a,b) => a + b.quantity, 0)}
@@ -92,7 +93,7 @@ function App() {
             <Nav className='me-auto w-100 justify-content-end'>
               <SearchBox></SearchBox>
               <Link to='/cart' className='nav-link d-none d-md-block'>
-                Cart 
+              <i className="fa fa-shopping-cart"></i> 
                 { cart.cartItems.length > 0 && (
                   <Badge pill className='mx-1' bg="danger">
                     {cart.cartItems.reduce( (a,b) => a + b.quantity, 0)}
@@ -196,6 +197,9 @@ function App() {
                ></Route>
                 <Route path='/admin/productlist'
                element={ <AdminRoute><ProductListScreen /></AdminRoute> }
+               ></Route>
+                <Route path='/admin/newproduct'
+               element={ <AdminRoute><NewProductScreen /></AdminRoute> }
                ></Route>
 
               <Route path="/" element={ <HomeScreen/> } />
