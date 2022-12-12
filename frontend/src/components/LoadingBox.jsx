@@ -3,8 +3,6 @@ import { Spinner } from "react-bootstrap";
 
 export default function LoadingBox() {
   return (
-    <Spinner animation="border" role='status'>
-        <span className="visually-hidden">Loading...</span>
-    </Spinner>
+    <img src="/images/loader.gif" alt="" className="loader"/>
   )
 }

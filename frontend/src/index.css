@@ -117,3 +117,8 @@ h1{
 .store{
   font-family: 'Lexend', sans-serif;
 }
+
+.loader{
+  width: 75px;
+  height: 75px;
+}
