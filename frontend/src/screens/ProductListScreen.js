@@ -1,7 +1,92 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useReducer } from 'react'
+import { Button, Card, Col, Row } from 'react-bootstrap';
+import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
+import Product from '../components/Product';
+
+const reducer = (state,action) => {
+    switch(action.type){
+      case 'FETCH_REQUEST':
+        return {...state, loading: true};
+      case 'FETCH_SUCCESS':
+        return{...state, products: action.payload, loading: false};
+      case 'FETCH_FAIL':
+        return {...state, loading: false, error: action.payload};
+      default:
+        return state;
+    }
+  }
 
 export default function ProductListScreen() {
-  return (
-    <div>ProductListScreen</div>
-  )
+
+    const [{loading, error, products}, dispatch] = useReducer(reducer, {
+        products: [],
+        loading: true, 
+        error: ''
+      })
+
+    const deleteHandler = () => {
+        
+    }
+    
+      useEffect(() => {
+        const fetchData = async () => {
+          dispatch({type: 'FETCH_REQUEST'})
+          try {
+            const result = await axios.get('/api/products')
+            dispatch({type: 'FETCH_SUCCESS', payload: result.data})
+    
+          } catch (error) {
+            dispatch({type: 'FETCH_FAIL', payload: error.message})
+          }
+        }
+        fetchData()
+      }, [])
+    
+        return ( 
+            <div>
+              <Helmet>
+                <title>Product List</title>
+              </Helmet>
+            <h1>My products </h1>
+            <div className="products" >
+            {
+              loading ? (<LoadingBox />)
+              :
+              error ? (<MessageBox variant="danger">{error}</MessageBox>)
+              :
+            (
+              <Row>
+                {products.map((product) => {
+                  return (
+                    <Col key={product.slug} xs={6} sm={4} md={3} lg={2} className="mb-3">
+                        <Card className='shadow border-0'>
+                            <Link to={`/product/${product.slug}`}>
+                                <img src={ product.image } className="card-img-top" alt={ product.name } />
+                            </Link>
+                            <Card.Body>
+                                <Link className='nav-link' to={`/product/${product.slug}`}>
+                                    <Card.Title> { product.name }</Card.Title>
+                                </Link>
+                                <Card.Subtitle className="mb-2 text-muted">{product.slug}</Card.Subtitle>
+                                <Card.Text>Quantity: {product.countInStock}</Card.Text>
+                                <Card.Text>Price per unit: ${product.price}</Card.Text>
+                                <Button className='my-1 me-2' variant='info' onClick={ deleteHandler }>Edit</Button>
+                                <Button variant='danger' onClick={ deleteHandler }>Delete</Button>
+                                </Card.Body>
+                        </Card>
+                    </Col>
+                  )
+                })}
+    
+              </Row>
+            )
+            }
+            </div>
+            </div>
+         );
+  
 }

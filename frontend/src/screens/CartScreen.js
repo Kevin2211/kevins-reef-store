@@ -35,7 +35,7 @@ export default function CartScreen() {
         <Helmet>
             <title>Shopping Cart</title>
         </Helmet>
-        <h1>Your Cart:</h1>
+        <h1>Your Cart</h1>
         <Row>
             <Col md={8} >
                 { cartItems.length === 0 
@@ -46,18 +46,18 @@ export default function CartScreen() {
                     </div>
                 </MessageBox>)
                 :  (
-                    <ListGroup>
+                    <ListGroup >
                         { cartItems.map(item => (
-                            <ListGroup.Item key={item._id}>
+                            <ListGroup.Item key={item._id} className='shadow border-0 mb-3'>
                                 <Row className='align-items-center'>
       
-                                        <Col md={4} className='my-2'>
+                                        <Col xs={6} md={4} className='my-2'>
                                             <img src={ item.image } alt={ item.name } 
                                             className="img-fluid rounded img-thumbnail"/>
                                             {' '}
                                             <Link className='nav-link' to={`/product/${ item.slug}`}> { item.name }</Link>
                                         </Col>
-                                        <Col md={3} className='my-2'>
+                                        <Col xs={6} md={3} className='my-2'>
                                         <Button variant="light" onClick={() => updateCartHandler(item, item.quantity -1)} disabled={item.quantity === 1}>
                                             <i className='fas fa-minus-circle'></i>
                                         </Button>
@@ -67,10 +67,10 @@ export default function CartScreen() {
                                             <i className='fas fa-plus-circle'></i>
                                         </Button>
                                         </Col>
-                                        <Col md={3} className='my-2'>
-                                            ${ item.price }
+                                        <Col xs={6} md={3} className='my-2'>
+                                            Price: ${ item.price }
                                         </Col>
-                                        <Col md={2} className='my-2'>
+                                        <Col xs={6} md={2} className='my-2'>
                                             <Button onClick={() => removeItemHandler(item)} variant='light'>
                                                 <i className='fas fa-trash'></i>
                                             </Button>
@@ -83,7 +83,7 @@ export default function CartScreen() {
                 )}
             </Col>
             <Col md={4} >
-                <Card>
+                <Card className='shadow border-0 mb-3'>
                     <Card.Body>
                         <ListGroup variant='flush'>
                             <ListGroup.Item>

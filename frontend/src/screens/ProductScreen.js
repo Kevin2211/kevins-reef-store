@@ -95,7 +95,7 @@ const ProductScreen = () => {
                     </ListGroup>
                 </Col>
                 <Col lg= { 3 }>
-                    <Card>
+                    <Card className="shadow border-0">
                         <Card.Body>
                             <ListGroup variant="flush">
                                 <ListGroup.Item>
