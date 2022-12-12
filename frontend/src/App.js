@@ -28,6 +28,7 @@ import SearchScreen from './screens/SearchScreen';
 import ProtectedRoute from './components/ProtectedRoute';
 import DashboardScreen from './screens/DashboardScreen';
 import AdminRoute from './components/AdminRoute';
+import ProductListScreen from './screens/ProductListScreen';
 
 function App() {
   const { state, dispatch: contextDispatch } = useContext(Store)
@@ -65,29 +66,39 @@ function App() {
         }>
         <ToastContainer position='bottom-center' limit={1}/>
 
-        <Navbar bg="secondary" variant="dark" expand="lg" className='shadow sticky-top'>
+        <Navbar bg="secondary" variant="dark" expand="lg" className='shadow-lg sticky-top'>
           <Container>
-            <Button variant='secondary' className='me-2'
+            <Button variant='secondary' className='me-3'
             onClick={() => setIsSideBarOpen(!isSideBarOpen)}>
               <i className='fas fa-bars'></i>
             </Button>
             <LinkContainer to="/">
-              <Navbar.Brand>
+              <Navbar.Brand className='store d-flex align-items-center'>
                 <img src="/images/kevinsreeflogo.png" className='logo' alt="" />
-                Kevin's Reef Store</Navbar.Brand>
+                 <div className='d-none d-md-block'>Kevin's Reef Store</div>
+                </Navbar.Brand>
             </LinkContainer>
-            <Navbar.Toggle aria-controls='basic-navbar-nav'></Navbar.Toggle>
-            <Navbar.Collapse id='basic-navbar-nav'>
-              <SearchBox></SearchBox>
-            <Nav className='me-auto w-100 justify-content-end'>
-              <Link to='/cart' className='nav-link'>
+            <Link to='/cart' className='nav-link d-md-none ms-auto me-3 '>
                 Cart 
                 { cart.cartItems.length > 0 && (
                   <Badge pill className='mx-1' bg="danger">
                     {cart.cartItems.reduce( (a,b) => a + b.quantity, 0)}
                   </Badge>
                 )
-                }
+              }
+              </Link>
+            <Navbar.Toggle aria-controls='basic-navbar-nav'></Navbar.Toggle>
+            <Navbar.Collapse id='basic-navbar-nav'>
+            <Nav className='me-auto w-100 justify-content-end'>
+              <SearchBox></SearchBox>
+              <Link to='/cart' className='nav-link d-none d-md-block'>
+                Cart 
+                { cart.cartItems.length > 0 && (
+                  <Badge pill className='mx-1' bg="danger">
+                    {cart.cartItems.reduce( (a,b) => a + b.quantity, 0)}
+                  </Badge>
+                )
+              }
               </Link>
               {userInfo ? (
                 <NavDropdown title={userInfo.name} id="nav-dropdown">
@@ -182,6 +193,9 @@ function App() {
                {/* Admin Routes */}
                <Route path='/admin/dashboard'
                element={ <AdminRoute><DashboardScreen /></AdminRoute> }
+               ></Route>
+                <Route path='/admin/productlist'
+               element={ <AdminRoute><ProductListScreen /></AdminRoute> }
                ></Route>
 
               <Route path="/" element={ <HomeScreen/> } />

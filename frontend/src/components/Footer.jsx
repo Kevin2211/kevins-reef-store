@@ -29,7 +29,7 @@ export default function Footer() {
 
                 <div className="col-sm-12 col-md-6 col-lg-3  mt-3">
                   
-                  <h6 className="text-uppercase mb-4 font-weight-bold">
+                  <h6 className="text-uppercase mb-4 store font-weight-bold">
                   <img src="/images/kevinsreeflogo.png" className='logo' alt="" />
                     Kevin's Reef Store
                   </h6>
