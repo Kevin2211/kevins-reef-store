@@ -103,7 +103,7 @@ export default function ProductListScreen() {
                                 <Card.Subtitle className="mb-2 text-muted">{product.slug}</Card.Subtitle>
                                 <Card.Text>Quantity: {product.countInStock}</Card.Text>
                                 <Card.Text>Price per unit: ${product.price}</Card.Text>
-                                <Button className='my-1 me-2' variant='info' onClick={ deleteHandler }>Edit</Button>
+                                <Link to={`/admin/${product._id}/edit`}><Button className='my-1 me-2' variant='info'>Edit</Button></Link>
                                 <Button variant='danger' onClick={ deleteHandler }>Delete</Button>
                                 </Card.Body>
                         </Card>

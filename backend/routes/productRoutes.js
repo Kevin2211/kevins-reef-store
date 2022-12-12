@@ -123,6 +123,30 @@ productRouter.post('/new', isAuth, isAdmin, expressAsyncHandler( async (req,res)
   }
 
 }))
+productRouter.put('/:id/edit', isAuth, isAdmin, expressAsyncHandler( async (req,res) => {
+
+  const productId = req.params.id 
+  const updatedProduct = await Product.findOneAndUpdate({ _id: productId}, {
+    $set: {
+      name: req.body.name,
+      slug: req.body.slug,
+      image: req.body.image,
+      category: req.body.category,
+      description: req.body.description,
+      careLevel: req.body.careLevel,
+      countInStock: req.body.countInStock,
+      price: req.body.price,
+    }
+  })
+  
+  if(updatedProduct){
+    res.send(updatedProduct)
+  }else{
+    res.status(401).send({message: "Product not found"})
+  }
+
+  
+}))
 
 productRouter.delete('/:id/delete', isAuth, isAdmin, expressAsyncHandler( async (req,res) => {
 

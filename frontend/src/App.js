@@ -30,6 +30,7 @@ import DashboardScreen from './screens/DashboardScreen';
 import NewProductScreen from './screens/NewProductScreen';
 import AdminRoute from './components/AdminRoute';
 import ProductListScreen from './screens/ProductListScreen';
+import EditProductScreen from './screens/EditProductScreen';
 
 function App() {
   const { state, dispatch: contextDispatch } = useContext(Store)
@@ -200,6 +201,9 @@ function App() {
                ></Route>
                 <Route path='/admin/newproduct'
                element={ <AdminRoute><NewProductScreen /></AdminRoute> }
+               ></Route>
+                <Route path='/admin/:id/edit'
+               element={ <AdminRoute><EditProductScreen /></AdminRoute> }
                ></Route>
 
               <Route path="/" element={ <HomeScreen/> } />
