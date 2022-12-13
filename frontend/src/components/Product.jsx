@@ -41,7 +41,7 @@ export default function Product(props) {
             <ProgressBar animated variant='info' label={care[product.careLevel - 1]} now={product.careLevel/5 * 100}></ProgressBar>
             </Card.Text>
             <Card.Text>Lighting:
-            <ProgressBar animated label={'Low'} now={25}></ProgressBar>
+            <ProgressBar animated variant='warning' label={'Low'} now={25}></ProgressBar>
             </Card.Text>
             <Card.Text>Flow:
             <ProgressBar animated variant='success' label={`Strong`} now={75}></ProgressBar>

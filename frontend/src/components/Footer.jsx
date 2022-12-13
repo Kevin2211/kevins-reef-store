@@ -27,15 +27,15 @@ export default function Footer() {
 
               <div className="row">
 
-                <div className="col-sm-12 col-md-6 col-lg-3  mt-3">
+                <div className="col-sm-12 col-md-6 col-lg-3 mb-2 mt-3">
                   
-                  <h6 className="text-uppercase mb-4 store font-weight-bold">
+                  <h6 className="text-uppercase mb-2 store font-weight-bold">
                   <img src="/images/kevinsreeflogo.png" className='logo' alt="" />
                     Kevin's Reef Store
                   </h6>
-                  <p>
-                    
-                  </p>
+                  <i className='text-muted text-italic'>
+                  Experience the benefits of eco-friendly aqua-cultured corals in your home aquarium
+                  </i>
                 </div>
 
 
