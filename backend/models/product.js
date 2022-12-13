@@ -1,5 +1,10 @@
 import mongoose from 'mongoose'
 
+const ImageSchema = new mongoose.Schema({
+    url: String,
+    fileName: String
+})
+
 const productSchema = new mongoose.Schema(
     {
         name: {

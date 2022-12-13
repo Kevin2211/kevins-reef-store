@@ -1,9 +1,11 @@
 import axios from 'axios'
 import React from 'react'
 import { useContext } from 'react'
-import { Button, Card } from 'react-bootstrap'
+import { Button, Card, ProgressBar } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { Store } from '../Store'
+
+
 
 
 export default function Product(props) {
@@ -35,7 +37,10 @@ export default function Product(props) {
                 <Card.Title> { product.name }</Card.Title>
             </Link>
             <Card.Text>Price: ${product.price}</Card.Text>
-            <Card.Text>Care Level: {product.careLevel}</Card.Text>
+            <Card.Text>Care Level:
+            <ProgressBar animated variant='info' now={product.careLevel/5 * 100}></ProgressBar>
+
+            </Card.Text>
             { product.countInStock === 0 ? <Button disabled >Out of Stock</Button> : <Button onClick={ addToCartHandler }>Add to cart</Button>}
         </Card.Body>
   </Card>

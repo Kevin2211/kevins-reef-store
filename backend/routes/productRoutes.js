@@ -3,6 +3,8 @@ import Product from '../models/product.js'
 import expressAsyncHandler from 'express-async-handler'
 import { isAdmin, isAuth } from '../utils.js'
 
+
+
 const productRouter = express.Router()
 
 productRouter.get('/', async (req,res) => {
@@ -103,7 +105,8 @@ productRouter.get('/categories', expressAsyncHandler( async (req,res) => {
   
 }))
 
-productRouter.post('/new', isAuth, isAdmin, expressAsyncHandler( async (req,res) => {
+productRouter.post('/new',  isAuth, isAdmin, expressAsyncHandler( async (req,res) => {
+
   const product = new Product({
     name: req.body.name,
     slug: req.body.slug,
@@ -114,7 +117,6 @@ productRouter.post('/new', isAuth, isAdmin, expressAsyncHandler( async (req,res)
     countInStock: req.body.countInStock,
     price: req.body.price,
   })
-
   const newProduct = await product.save()
   if(newProduct){
     res.send('New product created!')

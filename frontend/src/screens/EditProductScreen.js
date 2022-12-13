@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect } from 'react'
+import React, { useEffect, useReducer } from 'react'
 import { useContext } from 'react'
 import { useState } from 'react'
 import { Button, Container, Form } from 'react-bootstrap'
@@ -7,8 +7,22 @@ import { Helmet } from 'react-helmet-async'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import LoadingBox from '../components/LoadingBox'
 import { Store } from '../Store'
 import { getError } from '../utils'
+
+const reducer = (state, action) => {
+    switch(action.type){
+        case 'UPLOAD_REQUEST':
+            return {...state, loadingImage: true, error: ''}
+        case 'UPLOAD_SUCCESS':
+            return {...state, loadingImage: false, error: ''}
+        case 'UPLOAD_FAIL':
+            return {...state, loadingImage: false, error: action.payload}
+        default:
+            return state
+    }
+}
 
 export default function EditProductScreen() {
     const navigate = useNavigate()
@@ -26,6 +40,12 @@ export default function EditProductScreen() {
     const [careLevel, setCareLevel] = useState()
     const [countInStock, setCountInStock] = useState()
     const [price, setPrice] = useState()
+
+
+    const [{loadingImage, error}, dispatch] = useReducer(reducer, {
+        loadingImage: false,
+        error: ''
+    })
 
 
     const submitHandler = async (e) => {
@@ -75,6 +95,28 @@ export default function EditProductScreen() {
         fetchData()
     },[id])
 
+    const uploadFileHandler = async (e, forImages) => {
+        const file = e.target.files[0];
+        const bodyFormData = new FormData();
+        bodyFormData.append('file', file);
+        try {
+          dispatch({ type: 'UPLOAD_REQUEST' });
+          const { data } = await axios.post('/api/upload', bodyFormData, {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+              authorization: `Bearer ${userInfo.token}`,
+            },
+          });
+
+          dispatch({ type: 'UPLOAD_SUCCESS' });
+          toast.success('Image uploaded successfully');
+          setImage(data.secure_url)
+        } catch (err) {
+          toast.error(getError(err));
+          dispatch({ type: 'UPLOAD_FAIL', payload: getError(err) });
+        }
+      };
+
 
   return (
     <Container className="small-container">
@@ -91,8 +133,13 @@ export default function EditProductScreen() {
                 <Form.Label>Slug:</Form.Label>
                 <Form.Control type='text' onChange={(e) => setSlug(e.target.value)} value={slug} required></Form.Control>
             </Form.Group>
+            <Form.Group className='mb-3' controlId='imageFile'>
+                <Form.Label>Upload:</Form.Label>
+                <Form.Control type='file' onChange={uploadFileHandler} required></Form.Control>
+                {loadingImage &&  <LoadingBox></LoadingBox> }
+            </Form.Group>
             <Form.Group className='mb-3' controlId='password'>
-                <Form.Label>Image:</Form.Label>
+                <Form.Label>Image URL:</Form.Label>
                 <Form.Control type='text'  onChange={(e) => setImage(e.target.value)} value={image} required></Form.Control>
             </Form.Group>
             <Form.Group className='mb-3' controlId='category'>

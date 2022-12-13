@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useContext, useEffect, useReducer } from "react";
-import { Badge, Button, Card, Col, ListGroup, Row } from "react-bootstrap";
+import { Badge, Button, Card, Col, ListGroup, ProgressBar, Row } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async"
 import LoadingBox from "../components/LoadingBox";
@@ -84,7 +84,8 @@ const ProductScreen = () => {
                             <h1>{product.name}</h1>
                         </ListGroup.Item>
                         <ListGroup.Item>
-                            <p>{product.careLevel}</p>
+                            <p>Care Level </p>
+                            <ProgressBar animated variant='info' now={product.careLevel/5 * 100}></ProgressBar>
                         </ListGroup.Item>
                         <ListGroup.Item>
                             <p>{product.category}</p>
