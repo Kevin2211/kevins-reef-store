@@ -81,8 +81,11 @@ export default function ShippingAddressScreen() {
               <Form.Label>Zip Code: </Form.Label>
               <Form.Control value={postalCode} onChange={(e) => setPostalCode(e.target.value)} required></Form.Control>
             </Form.Group>
-            <div className='mb-3'>
-              <Button variant='primary' type='submit'>
+            <div className='mb-3 '>
+            <Button variant='primary' className='me-3' onClick={() => navigate('/cart')}>
+                Cancel
+              </Button>
+              <Button variant='secondary' type='submit'>
                 Continue
               </Button>
             </div>

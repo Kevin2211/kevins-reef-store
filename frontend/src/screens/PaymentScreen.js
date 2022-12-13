@@ -64,7 +64,8 @@ export default function PaymentScreen() {
                     >
                     </Form.Check>
                 </div>
-                <Button type='submit'>Continue</Button>
+                <Button className='me-3' onClick={() => navigate(-1)}>Go back</Button>
+                <Button variant='secondary' type='submit'>Continue</Button>
             </Form>
         </div>
     </div>

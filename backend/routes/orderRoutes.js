@@ -18,12 +18,20 @@ orderRouter.post('/', isAuth,expressAsyncHandler(async (req,res)=> {
         shippingPrice,
         taxPrice,
         totalPrice,
-        user: req.user._id
+        user: req.user._id,
+        paymentResult: {
+            id: req.body.id,
+            status: req.body.status,
+            update_time: req.body.update_time,
+            email_address: req.body.email_address},
+        isPaid: true,
+        paidAt: Date.now()
        
     })
 
     const newOrder = await order.save()
-    res.status(201).send({message: 'New Order Created!', order})
+
+    res.status(201).send({message: 'New Order Created!', newOrder})
 }))
 
 orderRouter.get(

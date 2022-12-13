@@ -42,7 +42,7 @@ export default function OrderHistoryScreen() {
       
                 { headers: { Authorization: `Bearer ${userInfo.token}` } }
               );
-                console.log(data)
+
               dispatch({ type: 'ORDER_SUCCESS', payload: data });
             } catch (error) {
               dispatch({

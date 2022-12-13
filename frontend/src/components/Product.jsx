@@ -36,7 +36,7 @@ export default function Product(props) {
             <Link className='nav-link' to={`/product/${product.slug}`}>
                 <Card.Title> { product.name }</Card.Title>
             </Link>
-            <Card.Text>Price: ${product.price}</Card.Text>
+            <Card.Text>${product.price}</Card.Text>
             <Card.Text>Care Level:
             <ProgressBar animated variant='info' label={care[product.careLevel - 1]} now={product.careLevel/5 * 100}></ProgressBar>
             </Card.Text>
