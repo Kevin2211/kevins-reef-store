@@ -8,6 +8,7 @@ import MessageBox from "../components/MessageBox";
 import { getError } from "../utils";
 import { Store } from "../Store";
 
+const care = ['Easy', 'Moderate', 'Intermediate', 'Dedicated', 'Expert']
 
 const reducer = (state,action) => {
     switch(action.type){
@@ -84,10 +85,16 @@ const ProductScreen = () => {
                             <h1>{product.name}</h1>
                         </ListGroup.Item>
                         <ListGroup.Item>
-                            <p>Care Level </p>
-                            <ProgressBar animated variant='info' now={product.careLevel/5 * 100}></ProgressBar>
+                            Care Level
+                            <ProgressBar className="mb-2" animated variant='info' label={care[product.careLevel - 1]} now={product.careLevel/5 * 100}></ProgressBar>
+                            Lighting
+                            <ProgressBar className="mb-2" animated label={'Low'} now={25}></ProgressBar>
+                            Flow
+                            <ProgressBar className="mb-2" animated variant='success' label={`Strong`} now={75}></ProgressBar>
+
                         </ListGroup.Item>
                         <ListGroup.Item>
+                            Category:
                             <p>{product.category}</p>
                         </ListGroup.Item>
                         <ListGroup.Item>
