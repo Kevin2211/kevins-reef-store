@@ -40,7 +40,20 @@ const productSchema = new mongoose.Schema(
         price: {
             type: Number,
             required: true
+        },
+        lighting: {
+            type: Number,
+            required: true
+        },
+        flow: {
+            type: Number,
+            required: true
+        },
+        isAvailable: {
+            type: Boolean,
+            required: true
         }
+
     },
     {
         timestamps: true

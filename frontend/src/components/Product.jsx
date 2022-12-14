@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom'
 import { Store } from '../Store'
 
 const care = ['Easy', 'Moderate', 'Intermediate', 'Dedicated', 'Expert']
+const light = ['Low', 'Moderate', 'Medium', 'High', 'Extra High']
+const flow = ['Low', 'Moderate', 'Medium', 'High', 'Extra High']
 
 
 export default function Product(props) {
@@ -37,14 +39,14 @@ export default function Product(props) {
                 <Card.Title> { product.name }</Card.Title>
             </Link>
             <Card.Text>${product.price}</Card.Text>
-            <Card.Text>Care Level:
+            <Card.Text><i className="fa fa-heart"></i> Care Level 
             <ProgressBar animated variant='info' label={care[product.careLevel - 1]} now={product.careLevel/5 * 100}></ProgressBar>
             </Card.Text>
-            <Card.Text>Lighting:
-            <ProgressBar animated variant='warning' label={'Low'} now={25}></ProgressBar>
+            <Card.Text><i className="fa fa-sun"></i> Lighting 
+            <ProgressBar animated variant='warning' label={light[product.lighting - 1]} now={product.lighting/5 * 100}></ProgressBar>
             </Card.Text>
-            <Card.Text>Flow:
-            <ProgressBar animated variant='success' label={`Strong`} now={75}></ProgressBar>
+            <Card.Text><i class="fa fa-wind"></i> Flow
+            <ProgressBar animated variant='success' label={flow[product.flow - 1]} now={product.flow/5 * 100}></ProgressBar>
             </Card.Text>
             { product.countInStock === 0 ? <Button disabled >Out of Stock</Button> : <Button onClick={ addToCartHandler }>Add to cart</Button>}
         </Card.Body>

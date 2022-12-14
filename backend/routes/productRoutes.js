@@ -116,6 +116,9 @@ productRouter.post('/new',  isAuth, isAdmin, expressAsyncHandler( async (req,res
     careLevel: req.body.careLevel,
     countInStock: req.body.countInStock,
     price: req.body.price,
+    lighting: req.body.lightLevel,
+    flow: req.body.flowLevel,
+    isAvailable: true,
   })
   const newProduct = await product.save()
   if(newProduct){
@@ -138,6 +141,9 @@ productRouter.put('/:id/edit', isAuth, isAdmin, expressAsyncHandler( async (req,
       careLevel: req.body.careLevel,
       countInStock: req.body.countInStock,
       price: req.body.price,
+      lighting: req.body.lightLevel,
+      flow: req.body.flowLevel,
+      isAvailable: true,
     }
   })
   

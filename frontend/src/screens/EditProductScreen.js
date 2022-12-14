@@ -38,6 +38,8 @@ export default function EditProductScreen() {
     const [category, setCategory] = useState('')
     const [description, setDescription] = useState('')
     const [careLevel, setCareLevel] = useState()
+    const [lightLevel, setLightLevel] = useState(0)
+    const [flowLevel, setFlowLevel] = useState(0)
     const [countInStock, setCountInStock] = useState()
     const [price, setPrice] = useState()
 
@@ -60,6 +62,8 @@ export default function EditProductScreen() {
                 careLevel,
                 countInStock,
                 price,
+                flowLevel,
+                lightLevel
             }, {
                     headers: {
                         authorization : `Bearer ${ userInfo.token}`
@@ -86,6 +90,8 @@ export default function EditProductScreen() {
                 setCareLevel(data.careLevel)
                 setCountInStock(data.countInStock)
                 setPrice(data.price)
+                setFlowLevel(data.flow)
+                setLightLevel(data.lighting)
 
             } catch (error) {
                 toast.error(getError(error))
@@ -135,7 +141,7 @@ export default function EditProductScreen() {
             </Form.Group>
             <Form.Group className='mb-3' controlId='imageFile'>
                 <Form.Label>Upload:</Form.Label>
-                <Form.Control type='file' onChange={uploadFileHandler} required></Form.Control>
+                <Form.Control type='file' onChange={uploadFileHandler}></Form.Control>
                 {loadingImage &&  <LoadingBox></LoadingBox> }
             </Form.Group>
             <Form.Group className='mb-3' controlId='password'>
@@ -144,15 +150,42 @@ export default function EditProductScreen() {
             </Form.Group>
             <Form.Group className='mb-3' controlId='category'>
                 <Form.Label>Category:</Form.Label>
-                <Form.Control type='text'  onChange={(e) => setCategory(e.target.value)} value={category} required></Form.Control>
+                <Form.Select className='w-50' aria-label="Category"  type='number'  onChange={(e) => setCategory(e.target.value)} required>
+                    <option value={'LPS'}>LPS</option>
+                    <option value={'SPS'}>SPS</option>
+                    <option value={'Softie'}>Softie</option>
+                    <option value={'Anemone'}>Anemone</option>
+                </Form.Select>
             </Form.Group>
             <Form.Group className='mb-3' controlId='description'>
                 <Form.Label>Description:</Form.Label>
                 <Form.Control style={{ height: '100px' }} as="textarea"  onChange={(e) => setDescription(e.target.value)} value={description} required></Form.Control>
             </Form.Group>
-            <Form.Group className='mb-3' controlId='careLevel'>
-                <Form.Label>Care level:</Form.Label>
-                <Form.Control type='number'  onChange={(e) => setCareLevel(e.target.value)} value={careLevel} required></Form.Control>
+            <Form.Group className='mb-3 d-flex flow-row justify-content-between' controlId='careLevel'>
+                <Form.Select className='w-25' aria-label="Care Level"  type='number'  onChange={(e) => setCareLevel(e.target.value)} required>
+                    <option>Care Levels</option>
+                    <option value={1}>1</option>
+                    <option value={2}>2</option>
+                    <option value={3}>3</option>
+                    <option value={4}>4</option>
+                    <option value={5}>5</option>
+                </Form.Select>
+                <Form.Select className='w-25' aria-label="Lighting Level"  type='number'  onChange={(e) => setLightLevel(e.target.value)} required>
+                    <option>Lighting Levels</option>
+                    <option value={1}>1</option>
+                    <option value={2}>2</option>
+                    <option value={3}>3</option>
+                    <option value={4}>4</option>
+                    <option value={5}>5</option>
+                </Form.Select>
+                <Form.Select className='w-25' aria-label="Flow Level"  type='number'  onChange={(e) => setFlowLevel(e.target.value)} required>
+                    <option>Flow Levels</option>
+                    <option value={1}>1</option>
+                    <option value={2}>2</option>
+                    <option value={3}>3</option>
+                    <option value={4}>4</option>
+                    <option value={5}>5</option>
+                </Form.Select>
             </Form.Group>
             <Form.Group className='mb-3' controlId='countInStock'>
                 <Form.Label>Quantity:</Form.Label>

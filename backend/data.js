@@ -25,7 +25,10 @@ const data = {
             price: 120,
             countInStock: 10,
             careLevel: 1,
-            description: 'high quality shirt'
+            description: 'what you see is what you get',
+            lighting: 2,
+            flow: 2,
+            isAvailable: true
         },
         {
 
@@ -36,7 +39,10 @@ const data = {
             price: 200,
             countInStock: 0,
             careLevel: 4,
-            description: 'high quality shirt'
+            description: 'what you see is what you get',
+            lighting: 3,
+            flow: 3,
+            isAvailable: true
         },
         {
 
@@ -47,7 +53,10 @@ const data = {
             price: 100,
             countInStock: 10,
             careLevel: 1,
-            description: 'high quality shirt'
+            description: 'what you see is what you get',
+            lighting: 1,
+            flow: 1,
+            isAvailable: true
         },
         {
             name: 'Weeping Willow Toadstool 2',
@@ -57,7 +66,10 @@ const data = {
             price: 100,
             countInStock: 0,
             careLevel: 1,
-            description: 'high quality shirt'
+            description: 'what you see is what you get',
+            lighting: 1,
+            flow: 1,
+            isAvailable: true
         }
     ]
 }

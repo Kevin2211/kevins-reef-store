@@ -9,6 +9,8 @@ import { getError } from "../utils";
 import { Store } from "../Store";
 
 const care = ['Easy', 'Moderate', 'Intermediate', 'Dedicated', 'Expert']
+const light = ['Low', 'Moderate', 'Medium', 'High', 'Extra High']
+const flow = ['Low', 'Moderate', 'Medium', 'High', 'Extra High']
 
 const reducer = (state,action) => {
     switch(action.type){
@@ -46,7 +48,7 @@ const ProductScreen = () => {
           }
         }
         fetchData()
-      }, [])
+      }, [slug])
 
       const { state, dispatch: contextDispatch } = useContext(Store)
 
@@ -85,16 +87,15 @@ const ProductScreen = () => {
                             <h1>{product.name}</h1>
                         </ListGroup.Item>
                         <ListGroup.Item>
-                            Care Level
+                        <i className="fa fa-heart"></i> Care Level 
                             <ProgressBar className="mb-2" animated variant='info' label={care[product.careLevel - 1]} now={product.careLevel/5 * 100}></ProgressBar>
-                            Lighting
-                            <ProgressBar className="mb-2" animated label={'Low'} now={25}></ProgressBar>
-                            Flow
-                            <ProgressBar className="mb-2" animated variant='success' label={`Strong`} now={75}></ProgressBar>
+                            <i className="fa fa-sun"></i> Lighting 
+                            <ProgressBar className="mb-2" animated  label={light[product.lighting - 1]} now={product.lighting/5 * 100}></ProgressBar>
+                            <i class="fa fa-wind"></i> Flow
+                            <ProgressBar className="mb-2" animated variant='success'  label={flow[product.flow - 1]} now={product.flow/5 * 100}></ProgressBar>
 
                         </ListGroup.Item>
                         <ListGroup.Item>
-                            Category:
                             <p>{product.category}</p>
                         </ListGroup.Item>
                         <ListGroup.Item>
