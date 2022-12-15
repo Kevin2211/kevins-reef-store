@@ -53,7 +53,7 @@ export default function SigninScreen() {
                 <Form.Control type='email' onChange={(e) => setEmail(e.target.value)} required></Form.Control>
             </Form.Group>
             <Form.Group className='mb-3' controlId='password'>
-                <Form.Label>password</Form.Label>
+                <Form.Label>Password</Form.Label>
                 <Form.Control type='password'  onChange={(e) => setPassword(e.target.value)} required></Form.Control>
             </Form.Group>
             <div className='mb-3'>

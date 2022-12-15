@@ -12,7 +12,7 @@ productRouter.get('/', async (req,res) => {
     res.send(products)
 })
 
-const page_size = 3
+const page_size = 6
 productRouter.get('/search', expressAsyncHandler( async (req,res) => {
 
     const { query } = req;

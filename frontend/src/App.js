@@ -122,7 +122,12 @@ function App() {
                     <NavDropdown.Divider></NavDropdown.Divider>
                     <Link to='#signout' className='dropdown-item' onClick={signoutHandler}>Sign Out</Link>
                 </NavDropdown>
-              ):( <Link className="nav-link" to='/signin'> Sign In</Link> )}
+              ):( <>
+              
+                <Link className="nav-link" to='/signup'> Register</Link>
+                <Link className="nav-link" to='/signin'> Sign in</Link>
+              </>
+              )}
               { userInfo && userInfo.isAdmin && (
                 <NavDropdown title="Admin" id="admin-nav-dropdown">
                     <LinkContainer to='/admin/dashboard'>
@@ -159,6 +164,17 @@ function App() {
             <Nav.Item>
               <strong>Categories</strong>
             </Nav.Item>
+            <Nav.Item> 
+                <LinkContainer to={
+                  {
+                    pathname: "/search",
+                    search: ``
+                  }
+                } 
+                onClick={() => setIsSideBarOpen(false)}>
+                  <Nav.Link>All Corals</Nav.Link>
+                </LinkContainer>
+              </Nav.Item>
             {categories.map((category) => (
               <Nav.Item key={category}> 
                 <LinkContainer to={

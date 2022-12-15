@@ -22,7 +22,6 @@ export default function ImageCarousel() {
           />
           <Carousel.Caption>
             <h3>Welcome to the Kevin's Reef Store</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item >

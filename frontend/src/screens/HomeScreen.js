@@ -101,7 +101,7 @@ const HomeScreen = () => {
                     }
                   } 
                   >
-                <img src="/images/softie.jpg" className="category-image" alt="" />
+                <img src="https://res.cloudinary.com/dckddk4fm/image/upload/v1671125648/Kevins-reef-store/NEgd71671121391_m5is69.jpg" className="category-image" alt="" />
               </LinkContainer>
               </Col>
 
