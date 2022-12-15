@@ -15,9 +15,10 @@ export default function ImageCarousel() {
             className="d-block w-100 "
             src="https://res.cloudinary.com/dckddk4fm/video/upload/v1671122506/Kevins-reef-store/carousel1_veklev.mp4"
             alt="First slide"
-            autoPlay='true'
             loop
             type="video/mp4"
+            autoPlay
+            muted
           />
           <Carousel.Caption>
             <h3>Welcome to the Kevin's Reef Store</h3>
