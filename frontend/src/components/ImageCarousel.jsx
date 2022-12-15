@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Carousel } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export default function ImageCarousel() {
     const [index, setIndex] = useState(0);
@@ -21,33 +22,40 @@ export default function ImageCarousel() {
             playsInline
           />
           <Carousel.Caption>
-            <h3>Welcome to the Kevin's Reef Store</h3>
+            <h4>Welcome to the Kevin's Reef Store</h4>
+            <p>The hub for healthy aqua-cultured corals</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item >
           <img
             className="d-block w-100 "
-            src="/images/carousel2.jpg"
+            src="https://res.cloudinary.com/dckddk4fm/image/upload/v1671129664/Kevins-reef-store/IMG_1883_xyjepq.jpg"
             alt="Second slide"
           />
   
           <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h3>Live Arrival Guaranteed </h3>
+            <strong>
+              <p >
+                With over 5 years of experience in shipping. Alive arrival or your money back. <Link to='/policy'>Terms and conditions apply</Link>
+              </p>
+            </strong>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100 "
-            src="/images/carousel2.jpg"
+            src="https://res.cloudinary.com/dckddk4fm/image/upload/v1671130059/Kevins-reef-store/carousel3_afkep2.jpg"
             alt="Third slide"
           />
   
           <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
+          <h3>Home Grown Aqua-Cultured Corals</h3>
+            <strong>
+              <p className='dark'>
+                Pests and Diseases Free
+              </p>
+            </strong>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

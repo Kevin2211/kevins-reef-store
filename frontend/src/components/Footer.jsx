@@ -34,7 +34,7 @@ export default function Footer() {
                     Kevin's Reef Store
                   </h6>
                   <i className='text-muted text-italic'>
-                  Experience the benefits of eco-friendly aqua-cultured corals in your home aquarium
+                  Experience the beauty of eco-friendly aqua-cultured corals in your home aquarium
                   </i>
                 </div>
 

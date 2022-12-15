@@ -57,11 +57,11 @@ export default function SigninScreen() {
                 <Form.Control type='password'  onChange={(e) => setPassword(e.target.value)} required></Form.Control>
             </Form.Group>
             <div className='mb-3'>
-                <Button type='submit'>Sign In</Button>
+                <Button variant='secondary' type='submit'>Sign In</Button>
             </div>
             <div className='mb-3'>
                 New customer? {' '}
-                <Link to={`/signup?redirect=${redirect}`}>Create your account</Link>
+                <Link className='nav-link' to={`/signup?redirect=${redirect}`}>Create your account</Link>
             </div>
         </Form>
     </Container>

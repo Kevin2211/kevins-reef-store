@@ -54,7 +54,7 @@ const HomeScreen = () => {
             <ImageCarousel></ImageCarousel>
           </div>
         <div className="container " >
-          <h1 className="mb-5 text-center">Shop Category</h1>
+          <h1 className="mb-5 text-center">Shop by Category</h1>
           <Row >
             <Col className='mb-4 text-center' md={6} lg={4}>
               <LinkContainer to={
