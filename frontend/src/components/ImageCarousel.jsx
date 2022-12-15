@@ -13,7 +13,7 @@ export default function ImageCarousel() {
         <Carousel.Item interval={6000}>
           <video
             className="d-block w-100 "
-            src="/images/carousel1.mp4"
+            src="https://res.cloudinary.com/dckddk4fm/video/upload/v1671122506/Kevins-reef-store/carousel1_veklev.mp4"
             alt="First slide"
             autoPlay='true'
             loop
