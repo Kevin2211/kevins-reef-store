@@ -16,9 +16,8 @@ export default function ImageCarousel() {
             src="https://res.cloudinary.com/dckddk4fm/video/upload/v1671122506/Kevins-reef-store/carousel1_veklev.mp4"
             alt="First slide"
             loop
-            type="video/mp4"
-            autoPlay
             muted
+            autoPlay
           />
           <Carousel.Caption>
             <h3>Welcome to the Kevin's Reef Store</h3>
