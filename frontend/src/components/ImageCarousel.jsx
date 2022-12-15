@@ -18,6 +18,7 @@ export default function ImageCarousel() {
             loop
             muted
             autoPlay
+            playsInline
           />
           <Carousel.Caption>
             <h3>Welcome to the Kevin's Reef Store</h3>
