@@ -10,12 +10,14 @@ export default function ImageCarousel() {
   
     return (
       <Carousel activeIndex={index} onSelect={handleSelect} >
-        <Carousel.Item>
+        <Carousel.Item interval={6000}>
           <video
             className="d-block w-100 "
             src="/images/carousel1.mp4"
             alt="First slide"
             autoPlay='true'
+            loop
+            type="video/mp4"
           />
           <Carousel.Caption>
             <h3>Welcome to the Kevin's Reef Store</h3>
