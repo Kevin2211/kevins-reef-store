@@ -65,7 +65,7 @@ const HomeScreen = () => {
                   } 
 
                   >
-                  <img src="/images/LPS.jpg" className="category-image" alt="" />
+                  <img src="https://res.cloudinary.com/dckddk4fm/image/upload/v1671123754/Kevins-reef-store/LPS_zn1fa9.jpg" className="category-image" alt="" />
               </LinkContainer>
               </Col> 
 
@@ -77,7 +77,7 @@ const HomeScreen = () => {
                     }
                   } 
                   >
-                <img src="/images/SPS.png" className="category-image" alt="" />
+                <img src="https://res.cloudinary.com/dckddk4fm/image/upload/v1671123807/Kevins-reef-store/SPS_kowrjr.png" className="category-image" alt="" />
               </LinkContainer>
               </Col>
 
@@ -89,7 +89,7 @@ const HomeScreen = () => {
                     }
                   } 
                   >
-                <img src="/images/Anemone.png" className="category-image" alt="" />
+                <img src="https://res.cloudinary.com/dckddk4fm/image/upload/v1671123932/Kevins-reef-store/Anemone_k4jrcf.png" className="category-image" alt="" />
               </LinkContainer>
               </Col>
 
@@ -113,7 +113,7 @@ const HomeScreen = () => {
                     }
                   } 
                   >
-                <img src="/images/zoanthid.png" className="category-image" alt="" />
+                <img src="https://res.cloudinary.com/dckddk4fm/image/upload/v1671123827/Kevins-reef-store/zoanthid_h04xrw.png" className="category-image" alt="" />
               </LinkContainer>
               </Col>
 
@@ -125,7 +125,7 @@ const HomeScreen = () => {
                     }
                   } 
                   >
-                <img src="/images/Torches.jpg" className="category-image" alt="" />
+                <img src="https://res.cloudinary.com/dckddk4fm/image/upload/v1671123818/Kevins-reef-store/Torches_svufg3.jpg" className="category-image" alt="" />
               </LinkContainer>
               </Col>
           </Row>
