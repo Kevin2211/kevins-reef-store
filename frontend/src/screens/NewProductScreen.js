@@ -128,6 +128,7 @@ export default function NewProductSceen() {
             <Form.Group className='mb-3' controlId='category'>
                 <Form.Label>Category:</Form.Label>
                 <Form.Select className='w-50' aria-label="Category"  type='number'  onChange={(e) => setCategory(e.target.value)} required>
+                    <option>Choose one</option>
                     <option value={'LPS'}>LPS</option>
                     <option value={'SPS'}>SPS</option>
                     <option value={'Softie'}>Softie</option>

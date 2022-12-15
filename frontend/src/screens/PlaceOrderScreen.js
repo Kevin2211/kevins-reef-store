@@ -174,7 +174,8 @@ export default function PlaceOrderScreen () {
                         <Card.Title>Shipping</Card.Title>
                         <Card.Text>
                             <strong>Name:</strong> {cart.shippingAddress.fullName} <br />
-                            <strong>Address: </strong> {cart.shippingAddress.address1}, {cart.shippingAddress.city}, {cart.shippingAddress.postalCode} 
+                            <strong>Address: </strong> {cart.shippingAddress.address1}, {cart.shippingAddress.address2}, {cart.shippingAddress.city}, {cart.shippingAddress.stateInfo}, {cart.shippingAddress.postalCode} <br />
+                            <strong>Note: </strong>{cart.shippingAddress.note}
                         </Card.Text>
                         <Link className='nav-link' to='/shipping'>Edit</Link>
 

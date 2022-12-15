@@ -40,13 +40,13 @@ export default function Product(props) {
             </Link>
             <Card.Text>${product.price}</Card.Text>
             <Card.Text><i className="fa fa-heart"></i> Care Level 
-            <ProgressBar animated variant='info' label={care[product.careLevel - 1]} now={product.careLevel/5 * 100}></ProgressBar>
+            <ProgressBar animated variant='danger' label={care[product.careLevel - 1]} now={product.careLevel/5 * 100}></ProgressBar>
             </Card.Text>
             <Card.Text><i className="fa fa-sun"></i> Lighting 
             <ProgressBar animated variant='warning' label={light[product.lighting - 1]} now={product.lighting/5 * 100}></ProgressBar>
             </Card.Text>
             <Card.Text><i class="fa fa-wind"></i> Flow
-            <ProgressBar animated variant='success' label={flow[product.flow - 1]} now={product.flow/5 * 100}></ProgressBar>
+            <ProgressBar animated variant='info' label={flow[product.flow - 1]} now={product.flow/5 * 100}></ProgressBar>
             </Card.Text>
             { product.countInStock === 0 ? <Button disabled >Out of Stock</Button> : <Button onClick={ addToCartHandler }>Add to cart</Button>}
         </Card.Body>

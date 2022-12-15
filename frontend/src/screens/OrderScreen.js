@@ -165,8 +165,8 @@ export default function OrderScreen() {
                     <strong>Name:</strong> {order.shippingAddress.fullName} <br />
                     <strong>Address: </strong> {order.shippingAddress.address1}
                     {order.shippingAddress.address2 ? order.shippingAddress.address2 : ' '}, 
-                    {order.shippingAddress.city}, {order.shippingAddress.postalCode}
-                    
+                    {order.shippingAddress.city}, {order.shippingAddress.stateInfo}, {order.shippingAddress.postalCode} <br />
+                    <strong>Note: </strong>{order.shippingAddress.note ? order.shippingAddress.note : 'N/A'}
                   </Card.Text>
                   {order.isDelivered ? (
                     <MessageBox variant="success">

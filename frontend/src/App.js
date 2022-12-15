@@ -92,19 +92,21 @@ function App() {
             <Navbar.Toggle aria-controls='basic-navbar-nav'></Navbar.Toggle>
             <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='me-auto w-100 justify-content-end'>
-              <div className='text-center'>
+              <div className='me-2'>
                 <SearchBox></SearchBox>
               </div>
 
-            <Link to='/cart' className='nav-link d-none d-md-block'>
-              <i className="fa fa-shopping-cart"></i> 
-              <div className=''>
-                { cart.cartItems.length > 0 && (
-                  <Badge pill className='mx-1' bg="danger">
-                    {cart.cartItems.reduce( (a,b) => a + b.quantity, 0)}
-                  </Badge>
-                ) 
-              }
+            <Link to='/cart' className='nav-link d-none d-md-block '>
+              <div className='d-flex'>
+                <i className="fa fa-shopping-cart mt-1"></i> 
+                <div className=''>
+                  { cart.cartItems.length > 0 && (
+                    <Badge pill className='mx-1' bg="danger">
+                      {cart.cartItems.reduce( (a,b) => a + b.quantity, 0)}
+                    </Badge>
+                  ) 
+                }
+                </div>
               </div>
             </Link>
 

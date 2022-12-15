@@ -17,6 +17,8 @@ export default function ShippingAddressScreen() {
   const [address2, setAddress2] = useState(savedShippingAddress.address2 || '')
   const [city, setCity] = useState(savedShippingAddress.city || '')
   const [postalCode, setPostalCode] = useState(savedShippingAddress.postalCode || '')
+  const [stateInfo, setStateInfo] = useState(savedShippingAddress.stateInfo || '')
+  const [note, setNote] = useState(savedShippingAddress.note || '')
 
   useEffect(() => {
     if(!userInfo){
@@ -36,6 +38,8 @@ export default function ShippingAddressScreen() {
         address2,
         city,
         postalCode,
+        stateInfo,
+        note
         
       }
     })
@@ -47,6 +51,8 @@ export default function ShippingAddressScreen() {
       address2,
       city,
       postalCode,
+      stateInfo,
+      note
     })
     )
     navigate('/payment')
@@ -55,11 +61,11 @@ export default function ShippingAddressScreen() {
   return (
     <div className='container'>
         <Helmet>
-            <title>Shipping Address</title>
+            <title>Shipping Info</title>
         </Helmet>
         <CheckoutBar step1 step2></CheckoutBar>
         <div className='container small-container'>
-        <h1 className='my-3'>Shipping Address</h1>
+        <h1 className='my-3'>Shipping Info</h1>
           <Form onSubmit={ submitHandler }>
             <Form.Group className='mb-3' controlId='fullName'>
               <Form.Label>Full Name: </Form.Label>
@@ -73,13 +79,24 @@ export default function ShippingAddressScreen() {
               <Form.Label>Address line 2: </Form.Label>
               <Form.Control value={address2} onChange={(e) => setAddress2(e.target.value)}></Form.Control>
             </Form.Group>
-            <Form.Group className='mb-3' controlId='city'>
-              <Form.Label>City: </Form.Label>
-              <Form.Control value={city} onChange={(e) => setCity(e.target.value)} required></Form.Control>
-            </Form.Group>
-            <Form.Group className='mb-3' controlId='postalCode'>
+            <div className='d-flex justify-content-between'>
+              <Form.Group className='mb-3 w-25' controlId='city'>
+                <Form.Label>City: </Form.Label>
+                <Form.Control value={city} onChange={(e) => setCity(e.target.value)} required></Form.Control>
+              </Form.Group>
+              <Form.Group className='mb-3 w-25' controlId='city'>
+                <Form.Label>State: </Form.Label>
+                <Form.Control value={stateInfo} onChange={(e) => setStateInfo(e.target.value)} required></Form.Control>
+              </Form.Group>
+            <Form.Group className='mb-3 w-25' controlId='postalCode'>
               <Form.Label>Zip Code: </Form.Label>
               <Form.Control value={postalCode} onChange={(e) => setPostalCode(e.target.value)} required></Form.Control>
+            </Form.Group>
+            </div>
+            <Form.Group className='mb-3' controlId='note'>
+              <Form.Label>Note for Kevin: </Form.Label>
+              <p className='text-muted'>Please specify a delivery date (Tuesday to Thursday) or special instructions if applicable</p>
+              <Form.Control as={'textarea'} value={note} onChange={(e) => setNote(e.target.value)}></Form.Control>
             </Form.Group>
             <div className='mb-3 '>
             <Button variant='primary' className='me-3' onClick={() => navigate('/cart')}>
