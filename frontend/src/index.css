@@ -129,3 +129,13 @@ h1{
 .pill{
   width: 100px;
 }
+
+.category-image{
+  width: 300px;
+  height: 300px;
+  border-radius: 15%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.category-image:hover{
+  box-shadow: rgba(40, 3, 249, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
