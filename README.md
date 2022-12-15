@@ -12,4 +12,5 @@ Features to accomplish:<br/>
 </ul>
 
 <h4>Store Home Page </h4>
-![Screen Shot 2022-12-15 at 2 38 51 PM](https://user-images.githubusercontent.com/36496209/207963538-2b032fc2-a72b-41fe-a29e-befecf46d1f1.png)
+
+![Screen Shot 2022-12-15 at 2 38 51 PM](https://user-images.githubusercontent.com/36496209/207964894-c7a18282-5976-445e-bf3a-aa2c59d22d1b.png)
