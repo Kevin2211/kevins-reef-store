@@ -7,6 +7,7 @@ import Product from "../components/Product";
 import { Helmet } from "react-helmet-async"
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
+import ImageCarousel from "../components/ImageCarousel";
 import { LinkContainer } from "react-router-bootstrap";
 
 const reducer = (state,action) => {
@@ -49,76 +50,84 @@ const HomeScreen = () => {
           <Helmet>
             <title>Kevin's Reef</title>
           </Helmet>
-        <h1>Category </h1>
-        <div className="products d-flex" >
+          <div className='my-4'>
+            <ImageCarousel></ImageCarousel>
+          </div>
+        <div className="container " >
+          <h1>Shop Category </h1>
           <Row >
-            <LinkContainer to={
-                  {
-                    pathname: "/search",
-                    search: `?category=LPS`
-                  }
-                } 
-                >
-              <Col className='my-5' md={6} lg={4}>
-                <img src="/images/LPS.jpg" className="category-image" alt="" />
-              </Col> 
-            </LinkContainer>
-            <LinkContainer to={
-                  {
-                    pathname: "/search",
-                    search: `?category=SPS`
-                  }
-                } 
-                >
-              <Col className='my-5' md={6}  lg={4}>
-              <img src="/images/SPS.png" className="category-image" alt="" />
-              </Col>
-            </LinkContainer>
-            <LinkContainer to={
-                  {
-                    pathname: "/search",
-                    search: `?category=Anemone`
-                  }
-                } 
-                >
-              <Col className='my-5' md={6}  lg={4}>
-              <img src="/images/SPS.png" className="category-image" alt="" />
-              </Col>
-            </LinkContainer>
-            <LinkContainer to={
-                  {
-                    pathname: "/search",
-                    search: `?category=Softie`
-                  }
-                } 
-                >
-              <Col className='my-5' md={6}  lg={4}>
-              <img src="/images/Softie.jpg" className="category-image" alt="" />
-              </Col>
-            </LinkContainer>
+            <Col className='my-4 text-center' md={6} lg={4}>
+              <LinkContainer to={
+                    {
+                      pathname: "/search",
+                      search: `?category=LPS`
+                    }
+                  } 
 
-            <LinkContainer to={
-                  {
-                    pathname: "/search",
-                    search: `?category=Zoanthid`
-                  }
-                } 
-                >
-              <Col className='my-5' md={6}  lg={4}>
-              <img src="/images/Softie.jpg" className="category-image" alt="" />
+                  >
+                  <img src="/images/LPS.jpg" className="category-image" alt="" />
+              </LinkContainer>
+              </Col> 
+
+            <Col className='my-4 text-center' md={6}  lg={4}>
+              <LinkContainer to={
+                    {
+                      pathname: "/search",
+                      search: `?category=SPS`
+                    }
+                  } 
+                  >
+                <img src="/images/SPS.png" className="category-image" alt="" />
+              </LinkContainer>
               </Col>
-            </LinkContainer>
-            <LinkContainer to={
-                  {
-                    pathname: "/search",
-                    search: `?category=Goniopora`
-                  }
-                } 
-                >
-              <Col className='my-5' md={6}  lg={4}>
-              <img src="/images/Softie.jpg" className="category-image" alt="" />
+
+            <Col className='my-4 text-center' md={6}  lg={4}>
+              <LinkContainer to={
+                    {
+                      pathname: "/search",
+                      search: `?category=Anemone`
+                    }
+                  } 
+                  >
+                <img src="/images/Anemone.png" className="category-image" alt="" />
+              </LinkContainer>
               </Col>
-            </LinkContainer>
+
+            <Col className='my-4 text-center' md={6}  lg={4}>
+              <LinkContainer to={
+                    {
+                      pathname: "/search",
+                      search: `?category=Softie`
+                    }
+                  } 
+                  >
+                <img src="/images/softie.jpg" className="category-image" alt="" />
+              </LinkContainer>
+              </Col>
+
+            <Col className='my-4 text-center' md={6}  lg={4}>
+              <LinkContainer to={
+                    {
+                      pathname: "/search",
+                      search: `?category=Zoanthid`
+                    }
+                  } 
+                  >
+                <img src="/images/zoanthid.png" className="category-image" alt="" />
+              </LinkContainer>
+              </Col>
+
+            <Col className='my-4 text-center' md={6}  lg={4}>
+              <LinkContainer to={
+                    {
+                      pathname: "/search",
+                      search: `?category=Torches`
+                    }
+                  } 
+                  >
+                <img src="/images/Torches.jpg" className="category-image" alt="" />
+              </LinkContainer>
+              </Col>
           </Row>
         </div>
         </div>
