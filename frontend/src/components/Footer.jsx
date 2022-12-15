@@ -85,7 +85,7 @@ export default function Footer() {
 
 
                 <div className=" col-6 col-sm-6 col-md-4 col-lg-2 mt-3">
-                  <h6 className="text-uppercase mb-3 font-weight-bold">Follow us</h6>
+                  <h6 className="text-uppercase mb-1 font-weight-bold">Follow or DM US</h6>
                   <a
                   target="_blank" rel="noopener noreferrer"
                     className="btn btn-floating m-1"
