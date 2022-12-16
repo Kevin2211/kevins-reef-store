@@ -2,7 +2,24 @@
 
 <a><h3>Live Demo:<br />
 https://kevins-reef-store.onrender.com/</h3></a>
-Stretch Goals:<br/>
+<h3> Technologies Used </h3>
+<strong>This project is built using the following technologies:</strong> <br/>
+-JWT (JSON Web Token) for user authentication and authorization<br/>
+-Express as the back-end server framework<br/>
+-React as the front-end library<br/>
+-MongoDB as the database<br/>
+-PayPal API for handling payment transactions<br/>
+-Cloudinary for storing and serving product images<br/>
+<strong>Features</strong><br/>
+-User authentication and authorization using JWT<br/>
+-Protected routes for user-specific data<br/>
+-View and purchase products from the online store<br/>
+-Checkout using PayPal for secure payment processing<br/>
+-View and update user profile and order history<br/>
+-Add and remove products from a user's wishlist<br/>
+-Product search and filtering<br/>
+-Responsive design for optimal viewing on various devices<br/>
+<strong>Stretch Goals:</strong><br/>
 <ul>
     <li>customer reviews</li>
     <li>add Stripe API</li>
