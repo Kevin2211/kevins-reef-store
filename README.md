@@ -1,4 +1,4 @@
-# MERN E-Commerce online store
+# Fullstack MERN E-Commerce store
 
 <a><h3>Live Demo:<br />
 https://kevins-reef-store.onrender.com/</h3></a>
