@@ -1,7 +1,7 @@
 # MERN E-Commerce online store
 
-<h3>Live Demo:<br />
-<a>https://kevins-reef-store.onrender.com/</a> </h3>
+<a><h3>Live Demo:<br />
+https://kevins-reef-store.onrender.com/</h3></a>
 Stretch Goals:<br/>
 <ul>
     <li>customer reviews</li>
