@@ -31,6 +31,8 @@ import NewProductScreen from './screens/NewProductScreen';
 import AdminRoute from './components/AdminRoute';
 import ProductListScreen from './screens/ProductListScreen';
 import EditProductScreen from './screens/EditProductScreen';
+import CustomerSupportScreen from './screens/CustomerSupportScreen';
+import ChatBox from './components/ChatBox';
 
 function App() {
   const { state, dispatch: contextDispatch } = useContext(Store)
@@ -142,6 +144,9 @@ function App() {
                     <LinkContainer to='/admin/userlist'>
                       <NavDropdown.Item>Users</NavDropdown.Item>
                     </LinkContainer>
+                    <LinkContainer to='/admin/support'>
+                      <NavDropdown.Item>Customer Support</NavDropdown.Item>
+                    </LinkContainer>
                 </NavDropdown>
               )}
             </Nav>
@@ -225,6 +230,9 @@ function App() {
                <Route path='/admin/dashboard'
                element={ <AdminRoute><DashboardScreen /></AdminRoute> }
                ></Route>
+                <Route path='/admin/support'
+               element={ <AdminRoute><CustomerSupportScreen /></AdminRoute> }
+               ></Route>
                 <Route path='/admin/productlist'
                element={ <AdminRoute><ProductListScreen /></AdminRoute> }
                ></Route>
@@ -241,8 +249,8 @@ function App() {
 
         </main>
 
-
         <Footer className='footer' />
+        <ChatBox userInfo={userInfo} />
         </div>
         </BrowserRouter>
     </div>

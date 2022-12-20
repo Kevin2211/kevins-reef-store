@@ -8,6 +8,7 @@ export default function ImageCarousel() {
     const handleSelect = (selectedIndex, e) => {
       setIndex(selectedIndex);
     };
+
   
     return (
       <Carousel activeIndex={index} onSelect={handleSelect} >
@@ -20,6 +21,7 @@ export default function ImageCarousel() {
             muted
             autoPlay
             playsInline
+
           />
           <Carousel.Caption>
             <h4>Welcome to the Kevin's Reef Store</h4>

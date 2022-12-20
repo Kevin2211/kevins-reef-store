@@ -57,7 +57,7 @@ const careLevels = [
         value: 2
     },
     {
-        name: 'Intermediate',
+        name: 'Dedicated',
         value: 3
     },
     {
@@ -233,7 +233,7 @@ export default function SearchScreen() {
                                 {query !== 'all' && ' : ' + query}
                                 {category !== 'all' && ' : ' + category}
                                 {price !== 'all' && ' : Price ' + price}
-                                {careLevel !== 'all' && ' : Care Level ' + careLevels.filter((level) => level.value == careLevel) }
+                                {careLevel !== 'all' && ' : Care Level ' + careLevels[careLevel - 1].name }
                                 {query !== 'all' ||
                                 category !== 'all' ||
                                 price !== 'all' ? (
