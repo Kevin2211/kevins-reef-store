@@ -19,6 +19,7 @@ https://kevins-reef-store.onrender.com/</h3></a>
 -Add and remove products from a user's wishlist<br/>
 -Product search and filtering<br/>
 -Responsive design for optimal viewing on various devices<br/>
+-Live Chat support using SocketIO<br/>
 <strong>Stretch Goals:</strong><br/>
 <ul>
     <li>customer reviews</li>
