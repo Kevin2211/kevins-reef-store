@@ -85,7 +85,7 @@ main{
 .chatbox li {
   margin-bottom: 1rem;
 }
-.chatbox input {
+.chatbox-input {
   width: calc(100% - 9rem);
 }
 

@@ -153,7 +153,7 @@ function App() {
             </Navbar.Collapse>
           </Container>
         </Navbar>
-        <Navbar bg="warning" variant="dark" expand="lg" className='shadow-lg'>
+        <Navbar bg="warning" variant="dark" expand="lg" >
               <Container className='d-flex justify-content-center my-0' >
                 <p className=' my-0' >Free Overnight Shipping on Orders +$300</p>
               </Container>

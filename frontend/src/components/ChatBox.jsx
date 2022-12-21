@@ -122,22 +122,19 @@ export default function ChatBox(props) {
                     </Card.Body>
                         <div className='text-center'>
                             <Form  onSubmit={submitHandler} >
-                                <Row>
-                                    <Col xs='10'>
+                                <div className='d-flex'>
+
                                         <Form.Group>
                                             <Form.Control
                                             value={messageBody}
                                             onChange={(e) => setMessageBody(e.target.value)}
                                             type="text"
-                                            placeholder="Type message"
-                                            className='w-100'
-                                            />
+                                            placeholder="Type a message"
+                                            className='chatbox-input'
+                                        />
                                         </Form.Group>
-                                    </Col>
-                                    <Col sx='2'>
-                                        <Button className='w-100' variant='primary'  type="submit"><i className="fa fa-paper-plane"></i></Button>
-                                    </Col>
-                                </Row>
+                                        <Button className='' variant='primary'  type="submit"><i className="fa fa-paper-plane"></i></Button>
+                                </div>
                             </Form>
                         </div>
                 </Card>
