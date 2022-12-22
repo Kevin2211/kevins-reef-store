@@ -33,20 +33,6 @@ const reducer = (state, action) => {
       }
 }
 
-const prices = [
-    {
-        name: '$1-$100',
-        value: '1-100'
-    },
-    {
-        name: '$101-$200',
-        value: '101-200'
-    },
-    {
-        name: '$201-$500',
-        value: '201-500'
-    }
-]
 const careLevels = [
     {
         name: 'Easy',
@@ -140,77 +126,54 @@ export default function SearchScreen() {
         <Row>
             <Col md={3}>
                 <Row>
-                    <Col xs={'auto'} md={12}>
+                    <Col xs={6} md={12}>
                         <div className='shadow-sm px-2 pb-1 border-0 rounded mb-3'>
-                        <h3>Categories</h3>
-                            <ul>
-                                <li >
+                        <h4 className='text-center'>Categories</h4>
+                            <ListGroup variant='flush'>
+                                <ListGroup.Item variant={category === 'all' ? 'info' : null}>
                                     <Link
-                                    className={'all' === category ? 'text-bold nav-link' : 'nav-link '}
+                                    className={'all' === category ? 'text-bold nav-link' : 'nav-link '} 
+
                                     to={getFilterUrl}>
                                         Any
                                     </Link>
-                                </li>
+                                </ListGroup.Item>
                                 {categories.map((c) => (
-                                    <li key={c}>
+                                    <ListGroup.Item key={c} variant={category === c ? 'info' : null}>
                                         <Link
                                         className={c === category ? 'text-bold nav-link' : 'nav-link'}
                                         to={getFilterUrl({category: c})}>
                                             {c}
                                         </Link>
-                                    </li>
+                                    </ListGroup.Item>
                                 ))}
-                            </ul>
+                            </ListGroup>
                         </div>
 
                     </Col>
-                    <Col xs={'auto'} md={12}>
+                    <Col xs={6} md={12}>
                     <div className='shadow-sm px-2 pb-1 border-0 rounded mb-3'>
-                        <h3>Price</h3>
-                            <ul>
-                                <li>
-                                <Link
-                                        className={'all' === price ? 'text-bold nav-link' : 'nav-link'}
-                                        to={getFilterUrl({ price: 'all'})}>
-                                            Any
-                                        </Link>
-                                </li>
-                                {prices.map((p) => (
-                                        <li key={p.value}>
-                                            <Link
-                                            className={p.value === price ? 'text-bold nav-link' : 'nav-link'}
-                                            to={getFilterUrl({price: p.value})}
-                                            >
-                                                {p.name}
-                                            </Link>
-                                        </li>
-                                    ))}
-                            </ul>
-                        </div>
-                    </Col>
-                    <Col xs={'auto'} md={12}>
-                    <div className='shadow-sm px-2 pb-1 border-0 rounded mb-3'>
-                            <h3>Care Level:</h3>
-                            <ul>
-                                    {careLevels.map((care) => (
-                                                    <li key={care.value}>
-                                                        <Link
-                                                        className={`${care.value}` === `${careLevel}` ? 'text-bold nav-link' : 'nav-link'}
-                                                        to={getFilterUrl({careLevel: care.value})}
-                                                        >
-                                                            {care.name}
-                                                        </Link>
-                                                    </li>
-                                                ))}
-                                                <li>
+                            <h4 className='text-center'>Care Level</h4>
+                            <ListGroup variant='flush'>
+                                <ListGroup.Item variant={careLevel === 'all' ? 'info' : null}>
                                     <Link
                                     to={getFilterUrl({ careLevel: 'all' })}
                                     className={careLevel === 'all' ? 'text-bold nav-link' : 'nav-link'}
                                     >
                                     All Levels
                                     </Link>
-                                </li>
-                            </ul>
+                                </ListGroup.Item>
+                                    {careLevels.map((care) => (
+                                                    <ListGroup.Item key={care.value} variant={`${care.value}` === `${careLevel}` ? 'info' : null}>
+                                                        <Link
+                                                        className={`${care.value}` === `${careLevel}` ? 'text-bold nav-link' : 'nav-link'}
+                                                        to={getFilterUrl({careLevel: care.value})}
+                                                        >
+                                                            {care.name}
+                                                        </Link>
+                                                    </ListGroup.Item>
+                                                ))}
+                            </ListGroup>
                         </div>
                     </Col>
 
@@ -232,17 +195,17 @@ export default function SearchScreen() {
                                 {countProducts === 0 ? 'No' : countProducts} Results
                                 {query !== 'all' && ' : ' + query}
                                 {category !== 'all' && ' : ' + category}
-                                {price !== 'all' && ' : Price ' + price}
                                 {careLevel !== 'all' && ' : Care Level ' + careLevels[careLevel - 1].name }
                                 {query !== 'all' ||
                                 category !== 'all' ||
-                                price !== 'all' ? (
+                                price !== 'all' ||
+                                careLevel !== 'all' ? (
                                 <Button
                                     variant="light"
                                     onClick={() => navigate('/search')}
                                     className='ms-2'
                                 >
-                                    <i className="fas fa-times-circle "></i>
+                                <i className="fas fa-times-circle "></i>
                                 </Button>
                                 ) : null}
                                 </div>
