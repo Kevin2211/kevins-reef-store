@@ -64,7 +64,7 @@ io.on('connection', (socket => {
         }
     })
     socket.on('onLogin', (user) => {
-        const updatedUser = {
+        const updatedUser = {   
             ...user,
             online: true,
             socketId: socket.id,

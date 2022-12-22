@@ -32,7 +32,7 @@ export default function Product(props) {
   return (
     <Card className='shadow border-0'>
         <Link to={`/product/${product.slug}`}>
-            <img src={ product.image } className="card-img-top" alt={ product.name } />
+            <img src={ product.image } className="card-img-top product-img-card" alt={ product.name } />
         </Link>
         <Card.Body>
             <Link className='nav-link' to={`/product/${product.slug}`}>

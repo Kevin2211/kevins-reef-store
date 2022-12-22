@@ -94,7 +94,7 @@ export default function ProductListScreen() {
                     <Col key={product.slug} xs={6} sm={4} md={3} lg={2} className="mb-3">
                         <Card className='shadow border-0'>
                             <Link to={`/product/${product.slug}`}>
-                                <img src={ product.image } className="card-img-top" alt={ product.name } />
+                                <img src={ product.image } className="card-img-top product-img-card" alt={ product.name } />
                             </Link>
                             <Card.Body>
                                 <Link className='nav-link' to={`/product/${product.slug}`}>

@@ -212,3 +212,8 @@ h1{
 .category-image:hover{
   box-shadow: rgba(88, 2, 249, 0.638) 2.5px 2.5px 3.2px;
 }
+.product-img-card{
+  aspect-ratio: 3/2;
+  object-fit:cover;
+
+}
