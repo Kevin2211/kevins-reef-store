@@ -176,7 +176,7 @@ main{
   width: 100%;
 }
 .page-container{
-  padding-bottom: 30em;
+  padding-bottom: 22rem;
 }
 
 
@@ -244,8 +244,9 @@ border:1px solid #ECECEC;
 }
 #customers-testimonials .item {
   text-align: center;
-  padding: 50px;
-  margin-bottom:80px;
+  padding: 20px;
+
+
   opacity: .2;
   -webkit-transform: scale3d(0.8, 0.8, 1);
   transform: scale3d(0.8, 0.8, 1);
@@ -272,6 +273,7 @@ border:1px solid #ECECEC;
 display: inline-block;
 width: 100%;
 text-align: center;
+margin-bottom: 150px;
 }
 #customers-testimonials.owl-carousel .owl-dots .owl-dot{
 display: inline-block;
@@ -279,7 +281,7 @@ display: inline-block;
 #customers-testimonials.owl-carousel .owl-dots .owl-dot span {
   background: #5a64f1;
   display: inline-block;
-  height: 20px;
+  height: 10px;
   margin: 0 2px 5px;
   transform: translate3d(0px, -50%, 0px) scale(0.3);
   transform-origin: 50% 50% 0;

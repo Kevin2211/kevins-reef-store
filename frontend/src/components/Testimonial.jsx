@@ -16,14 +16,14 @@ export default function Testimonial() {
             <section className="testimonials">
                 <div className="container">
 
-                <div className="row">
-                    <div className="col-sm-12">
-                    <OwlCarousel id="customers-testimonials" className="owl-carousel"
+                <div className="row" >
+                    <div className="col-sm-12" >
+                    <OwlCarousel id="customers-testimonials" className="owl-carousel" 
                     loop
                     center
                     items={2}
                     margin={1}
-   
+
                     autoplay
                     dots
                     autoplayTimeout={8500}
