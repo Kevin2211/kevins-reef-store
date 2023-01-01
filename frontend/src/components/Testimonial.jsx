@@ -21,8 +21,9 @@ export default function Testimonial() {
                     <OwlCarousel id="customers-testimonials" className="owl-carousel"
                     loop
                     center
-                    items={3}
-                    margin={0}
+                    items={2}
+                    margin={1}
+   
                     autoplay
                     dots
                     autoplayTimeout={8500}
