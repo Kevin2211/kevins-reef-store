@@ -119,11 +119,11 @@ export default function SearchScreen() {
         // return `/search?category=${filterCategory}&query=${filterQuery}&price=${filterPrice}&rating=${filterCareLevel}&order=${sortOrder}&page=${filterPage}`;
     }
   return (
-    <div>
+    <div className='search-screen'>
         <Helmet>
             <title>Search Results</title>
         </Helmet>
-        <Row>
+        <Row >
             <Col md={3}>
                 <Row>
                     <Col xs={6} md={12}>

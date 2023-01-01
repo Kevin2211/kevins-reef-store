@@ -288,3 +288,6 @@ display: inline-block;
   transition: all 250ms ease-out 0s;
   width: 20px;
 }
+.search-screen{
+  margin-bottom: 170px;
+}
