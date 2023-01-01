@@ -176,7 +176,7 @@ main{
   width: 100%;
 }
 .page-container{
-  padding-bottom: 22rem;
+  padding-bottom: 32rem;
 }
 
 
@@ -273,7 +273,7 @@ border:1px solid #ECECEC;
 display: inline-block;
 width: 100%;
 text-align: center;
-margin-bottom: 150px;
+
 }
 #customers-testimonials.owl-carousel .owl-dots .owl-dot{
 display: inline-block;
@@ -288,6 +288,4 @@ display: inline-block;
   transition: all 250ms ease-out 0s;
   width: 20px;
 }
-.search-screen{
-  margin-bottom: 170px;
-}
+
