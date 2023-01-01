@@ -1,49 +1,15 @@
-import { useEffect, useReducer } from "react";
-//import data from "../data";
-import axios from 'axios'
 
 import { Row, Col} from 'react-bootstrap'
-import Product from "../components/Product";
 import { Helmet } from "react-helmet-async"
-import LoadingBox from "../components/LoadingBox";
-import MessageBox from "../components/MessageBox";
 import ImageCarousel from "../components/ImageCarousel";
 import { LinkContainer } from "react-router-bootstrap";
+import Testimonial from "../components/Testimonial";
 
-const reducer = (state,action) => {
-  switch(action.type){
-    case 'FETCH_REQUEST':
-      return {...state, loading: true};
-    case 'FETCH_SUCCESS':
-      return{...state, products: action.payload, loading: false};
-    case 'FETCH_FAIL':
-      return {...state, loading: false, error: action.payload};
-    default:
-      return state;
-  }
-}
+
 
 const HomeScreen = () => {
 
-  const [{loading, error, products}, dispatch] = useReducer(reducer, {
-    products: [],
-    loading: true, 
-    error: ''
-  })
-
-  useEffect(() => {
-    const fetchData = async () => {
-      dispatch({type: 'FETCH_REQUEST'})
-      try {
-        const result = await axios.get('/api/products')
-        dispatch({type: 'FETCH_SUCCESS', payload: result.data})
-
-      } catch (error) {
-        dispatch({type: 'FETCH_FAIL', payload: error.message})
-      }
-    }
-    fetchData()
-  }, [])
+ 
 
     return ( 
         <div>
@@ -54,7 +20,7 @@ const HomeScreen = () => {
             <ImageCarousel></ImageCarousel>
           </div>
         <div className="container " >
-          <h1 className="mb-5 text-center">Shop by Category</h1>
+          <h1 className="my-5 text-center">Shop by Category</h1>
           <Row >
             <Col className='mb-4 text-center' md={6} lg={4}>
               <LinkContainer to={
@@ -130,6 +96,10 @@ const HomeScreen = () => {
               </Col>
           </Row>
         </div>
+          <div className='mt-5'>
+            <h1 className="mb-3 text-center">Reviews From Real Reefers</h1>
+            <Testimonial />
+          </div>
         </div>
      );
 }

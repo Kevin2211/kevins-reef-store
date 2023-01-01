@@ -56,7 +56,7 @@ io.on('connection', (socket => {
         const user = users.find((x) => x.socketId === socket.id)
         if (user) {
             user.online = false
-            console.log('offline', user.name)
+
             const admin = users.find((x) => x.isAdmin && x.online)
             if(admin){
                 io.to(admin.socketId).emit('updatedUser', user)
