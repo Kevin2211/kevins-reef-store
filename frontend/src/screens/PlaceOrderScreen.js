@@ -48,12 +48,11 @@ export default function PlaceOrderScreen () {
         cart.cartItems.reduce((a,b) => a + b.quantity * b.price , 0)
     )
 
-    cart.shippingPrice = cart.itemsPrice > 250 ? roundNumber(0) : roundNumber(45)
+    cart.shippingPrice = cart.itemsPrice >= 250 ? roundNumber(0) : roundNumber(45)
 
-    cart.taxPrice = roundNumber(0.15 * cart.itemsPrice)
+    cart.taxPrice = roundNumber(0.068 * cart.itemsPrice)
     
-    cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice + cart.taxPrice
-    const [orderId, setOrderId] = useState('')
+    cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice 
 
     
     const [{ loading, error, order, successPay, loadingPay }, dispatch ] = useReducer(reducer, {

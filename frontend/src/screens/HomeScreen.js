@@ -1,5 +1,5 @@
 
-import { Row, Col} from 'react-bootstrap'
+import { Row, Col, Button} from 'react-bootstrap'
 import { Helmet } from "react-helmet-async"
 import ImageCarousel from "../components/ImageCarousel";
 import { LinkContainer } from "react-router-bootstrap";
@@ -67,7 +67,7 @@ const HomeScreen = () => {
                     }
                   } 
                   >
-                <img src="https://res.cloudinary.com/dckddk4fm/image/upload/v1671125648/Kevins-reef-store/NEgd71671121391_m5is69.jpg" className="category-image" alt="" />
+               <img src="https://res.cloudinary.com/dckddk4fm/image/upload/v1671125648/Kevins-reef-store/NEgd71671121391_m5is69.jpg" className="category-image" alt="" />
               </LinkContainer>
               </Col>
 
