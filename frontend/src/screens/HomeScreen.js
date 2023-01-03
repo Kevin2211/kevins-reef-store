@@ -97,7 +97,7 @@ const HomeScreen = () => {
           </Row>
         </div>
           <div className='mt-5'>
-            <h1 className="mb-3 text-center">Reviews From Real Reefers</h1>
+            <h1 className="mb-3 text-center">Reviews From Fellow Reefers</h1>
             <Testimonial />
           </div>
         </div>
